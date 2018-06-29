@@ -5,19 +5,23 @@ body{
 
     /* Center and scale the image nicely */
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat:repeat;
     background-size: cover;
 }
 #nav{
+    position:fixed;
+    width:100%;
+    height:10%;     
     padding:0;
     z-index:10; /*high z-index so always on top*/
 
 }
 #logo{
-    position:relative;
+    position:absolute;
     width:22vh;
     height:auto;
-    left:5vh;
+    left:2vw;
+    
 }
 #calendar-icon{
     position:relative;
@@ -26,32 +30,65 @@ body{
 
 #wrapper{
     margin:0 auto;
-    grid-gap:2vw;
     display:grid;
+    grid-gap:2vw;
     grid-template-columns: 20vw repeat(3, 1fr);
-    grid-template-rows: repeat(6,1fr);
-    height:100vh; 
     padding:2vw;
 }
 #sidebar{
     position:fixed;
-    top:0;
+    top:10%;
     bottom:0;
-    right:78vw;
+    right:78%;
     left:0;
     background-color: green;
     z-index:2;
+    opacity:0.9;
 }
-#map{
-    grid-row:2/6;
+#assignments{
+    margin:1.5vh;
+    height:250px;
+    background-color: whitesmoke;
+}
+#commitments{
+    margin:1.5vh;
+    height:250px;
+    background-color: whitesmoke;
+}
+#map{   
+    margin-top:10vh;
     grid-column:2/5;
+    height:400px;
     background-color:yellow;
+}
+#sessions{
+    grid-column: 2/5;
+    height:200px;
+    background-color: orange;
+    opacity:0.9;
 }
 #chat{
     text-align:center;
     position:fixed;
     bottom:0.1vh;
     right:1vw;
-    width:20vw;
-    height:8vh;
+    width:auto;
+    height:6vh;
+    opacity:1;
+    z-index:11;
+}
+.badge{
+    margin:0 0.5vw;
+}
+#extra1{
+    opacity:0.9;
+    grid-column: 2/4;
+    height:200px;
+    background-color: blue;
+}
+#extra2{
+    opacity:0.9;
+    grid-column: 4/5;
+    height:200px;
+    background-color: red;
 }

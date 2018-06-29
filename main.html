@@ -19,25 +19,32 @@
 </head>
 
 <body>
+    <!-- header navbar -->
     <nav class="navbar navbar-light bg-white" id="nav">
         <a class="navbar-brand" href="#"></a>
         <img src="assets/images/logo.jpg" class="d-inline-block align-top" id="logo" alt="Session">
         </a>
         <img src="assets/images/calendar-icon.png" id="calendar-icon">
     </nav>
-    <!-- all components in wrapper div use css grid -->
+    <!-- sidebar -->
     <div class="sidebar" id="sidebar">
         <aside class="sidebar" id="assignments"></aside>
         <aside class="sidebar" id="commitments"></aside>
         <aside class="sidebar" id="tips"></aside>
-        <button class="chat" id="chat">
-            <h1>Chat</h1>
-        </button>
     </div>
+    <!-- chat -->
+    <button class="btn bg-secondary" id="chat">
+        <b>Messenger</b>
+        <span class="badge badge-primary">4</span>
+    </button>
+    <!-- all components in wrapper div use css grid -->
     <div id="wrapper">
         <main class="" id="map"></main>
         <section id="sessions"></section>
+        <section id="extra1"></section>
+        <section id="extra2"></section>
     </div>
+    <!-- bootstrap CDN links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
