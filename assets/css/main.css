@@ -1,0 +1,57 @@
+body{
+    background-image:url("../images/background.jpg");
+    /* Full height */
+    height: 100vh; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#nav{
+    padding:0;
+    z-index:10; /*high z-index so always on top*/
+
+}
+#logo{
+    position:relative;
+    width:22vh;
+    height:auto;
+    left:5vh;
+}
+#calendar-icon{
+    position:relative;
+    right:5vh;
+}
+
+#wrapper{
+    margin:0 auto;
+    grid-gap:2vw;
+    display:grid;
+    grid-template-columns: 20vw repeat(3, 1fr);
+    grid-template-rows: repeat(6,1fr);
+    height:100vh; 
+    padding:2vw;
+}
+#sidebar{
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:78vw;
+    left:0;
+    background-color: green;
+    z-index:2;
+}
+#map{
+    grid-row:2/6;
+    grid-column:2/5;
+    background-color:yellow;
+}
+#chat{
+    text-align:center;
+    position:fixed;
+    bottom:0.1vh;
+    right:1vw;
+    width:20vw;
+    height:8vh;
+}
