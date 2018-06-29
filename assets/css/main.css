@@ -7,6 +7,7 @@ body{
     background-position: center;
     background-repeat:repeat;
     background-size: cover;
+    font-family: 'Roboto', sans-serif;
 }
 #nav{
     position:fixed;
@@ -23,23 +24,36 @@ body{
     left:2vw;
     
 }
-#calendar-icon{
-    position:relative;
-    right:5vh;
+#settings-icon{
+    position:absolute;
+    right:3vh;
+    height:8vh;
+    width:auto;
 }
-
+#calendar-icon{
+    position:absolute;
+    right:12.5vh;
+    height:8vh;
+    width:auto;
+}
+#medal-icon{
+    position:absolute;
+    right:22.5vh;
+    height:8vh;
+    width:auto;
+}
 #wrapper{
     margin:0 auto;
     display:grid;
-    grid-gap:2vw;
+    grid-gap:1vw;
     grid-template-columns: 20vw repeat(3, 1fr);
-    padding:2vw;
+    padding:1vw;
 }
 #sidebar{
     position:fixed;
     top:10%;
     bottom:0;
-    right:78%;
+    right:78.5%;
     left:0;
     background-color: green;
     z-index:2;

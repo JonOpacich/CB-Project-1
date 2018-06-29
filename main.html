@@ -9,6 +9,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
     <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Session: Study Together</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,16 +25,20 @@
         <a class="navbar-brand" href="#"></a>
         <img src="assets/images/logo.jpg" class="d-inline-block align-top" id="logo" alt="Session">
         </a>
-        <img src="assets/images/calendar-icon.png" id="calendar-icon">
+        <input tabindex="0" data-trigger="focus" type="image" src="assets/images/settings-icon.png" id="settings-icon" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus" />
+        <input tabindex="0" data-trigger="focus" type="image" src="assets/images/calendar-icon.png" id="calendar-icon" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus" />
+        <input tabindex="0" data-trigger="focus" type="image" src="assets/images/medal-icon.png" id="medal-icon"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus" />
     </nav>
     <!-- sidebar -->
     <div class="sidebar" id="sidebar">
-        <aside class="sidebar" id="assignments"></aside>
+        <aside class="sidebar" id="assignments">
+                <h5>Upcoming Assignments:</h5>
+        </aside>
         <aside class="sidebar" id="commitments"></aside>
         <aside class="sidebar" id="tips"></aside>
     </div>
     <!-- chat -->
-    <button class="btn bg-secondary" id="chat">
+    <button tabindex="0" data-trigger="focus" class="btn bg-secondary" id="chat" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
         <b>Messenger</b>
         <span class="badge badge-primary">4</span>
     </button>
