@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Schedule Editor | Sessions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <!-- FireBase script -->
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|IM+Fell+English+SC" rel="stylesheet">
+
+    <!-- my CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <!-- my JS -->
+    <script src="assets/javascript/schedule.js"></script>
+</head>
+
+<body>
+    <article class="container">
+        <div class="row">
+            <form class="col-md-8">
+                <section id="addressForm" class="form-group">
+                        <label for="addressForm">Enter Address</label>
+                        <div class="form-row">
+                            <div class="col">
+                            <input type="address" class="form-control" id="street-address" aria-describedby="emailHelp" placeholder="Address">
+                        </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-7">
+                                <input type="text" class="form-control"  id="city" placeholder="City">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="state" placeholder="State">
+                            </div>
+                            <div class="col">
+                                <input type="number" class="form-control" id="zip" placeholder="Zip">
+                            </div>
+                        </div>
+                </section>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Default checkbox
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                    <label class="form-check-label" for="defaultCheck2">
+                        Disabled checkbox
+                    </label>
+                </div>
+            </form>
+        </div>
+    </article>
+    <!-- Bootstrap scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
