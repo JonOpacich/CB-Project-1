@@ -31,45 +31,47 @@
         <div class="row">
             <form class="col-md-8">
                 <section id="addressForm" class="form-group">
-                        <label for="addressForm">Enter Address</label>
-                        <div class="form-row">
-                            <div class="col">
+                    <label for="addressForm">Enter Address</label>
+                    <div class="form-row">
+                        <div class="col">
                             <input type="address" class="form-control" id="street-address" aria-describedby="emailHelp" placeholder="Address">
                         </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-7">
+                            <input type="text" class="form-control" id="city" placeholder="City">
                         </div>
-                        <div class="form-row">
-                            <div class="col-7">
-                                <input type="text" class="form-control"  id="city" placeholder="City">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" id="state" placeholder="State">
-                            </div>
-                            <div class="col">
-                                <input type="number" class="form-control" id="zip" placeholder="Zip">
-                            </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="state" placeholder="State">
                         </div>
+                        <div class="col">
+                            <input type="number" class="form-control" id="zip" placeholder="Zip">
+                        </div>
+                    </div>
                 </section>
 
                 <!-- scheudule form -->
-                <table class="table">
+                <div class="row">
+                    <table class="table">
                         <thead>
-                          <tr id="table-header">
-                              <th>Hours/Day</th>
-                          </tr>
+                            <tr id="table-header">
+                                <th>Hours/Day</th>
+                            </tr>
                         </thead>
                         <tbody id="table-body">
-                          
-                      </table>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value=false id="">
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                    <label class="form-check-label" for="defaultCheck2">
-                        Disabled checkbox
-                    </label>
-                </div>
-            </form>
+
+                    </table>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value=false id="">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                        <label class="form-check-label" for="defaultCheck2">
+                            Disabled checkbox
+                        </label>
+                    </div>
+                </form>
+            </div>
         </div>
     </article>
     <!-- Bootstrap scripts -->
