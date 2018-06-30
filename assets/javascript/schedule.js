@@ -9,20 +9,33 @@
 
 //make it so need to answer address to un-hide the schedule form
 //schedule needs to update for every 2 weeks?
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyDpx_ce6nfAL5lmBW6m4j6SSCKPktPxmXM",
+    authDomain: "myfirstfirebase-8b3c3.firebaseapp.com",
+    databaseURL: "https://myfirstfirebase-8b3c3.firebaseio.com",
+    projectId: "myfirstfirebase-8b3c3",
+    storageBucket: "myfirstfirebase-8b3c3.appspot.com",
+    messagingSenderId: "83041360224"
+};
+firebase.initializeApp(config);
+let database = firebase.database();
+
+
+
 let string = "";
 let hourPosition = 7;
+let userScheduleArray = [];
 
 function createCheckboxes() {
     let scheduleLength = 14;
     let weekdayPosition = 0;
     for (let checkboxIndex = 0; checkboxIndex < scheduleLength; checkboxIndex++) {
-        string = string + `<td><div class="form-check"><input class="form-check-input position-static" type="checkbox" start-time="${hourPosition}" day-value="${weekdayPosition}" value=false aria-label="..."></div></td>`
-
+        string = string + `<td><div class="form-check"><input class="form-check-input position-static" type="checkbox" id="day-${weekdayPosition}-hr-${hourPosition}" value=false aria-label="..."></div></td>`
         weekdayPosition++;
     }
     return string;
 }
-console.log(createCheckboxes())
 
 $(document).ready(function () {
 
@@ -65,15 +78,52 @@ $(document).ready(function () {
         // }
     }
 
-    $(document).on("click", ".form-check", function (event) {
-        event.preventDefault();
-        console.log($(this).attr("start-time"));
+
+    //change the value from true/false when checkbox checked/unchecked
+    $(document).on("click", ".form-check-input", function () {
         if ($(this).attr("value") == "false") {
             $(this).attr("value", "true")
         } else if ($(this).attr("value") == "true") {
             $(this).attr("value", "false")
         }
-
     })
 
+    //-----------------
+
+
+    //-----------------
+    $("#address-submit-btn").on("click", function (event) {
+        event.preventDefault();
+        let address = $("#street-address").val().trim();
+        let city = $("#city").val().trim();
+        let state = $("#state").val().trim();
+        let zip = $("#zip").val().trim();
+
+        database.ref("User Address").push({
+            address: address,
+            city: city,
+            state: state,
+            zip: zip
+        })
+    })
+
+    //this info not terribly helpful yet---left off here!
+    $("#schedule-submit-btn").on("click", function (event) {
+        event.preventDefault();
+        $(".form-check-input").each(function () {
+            if ($(this).attr("value") == "true") {
+                userScheduleArray.push($(this).attr("id"));
+            }
+        })
+        database.ref("User Schedule").push({
+            availability: userScheduleArray
+        })
+    })
+
+
+
+
+
 })
+
+
