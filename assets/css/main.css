@@ -12,65 +12,61 @@ body{
 #nav{
     position:fixed;
     width:100%;
-    height:10%;     
+    height:7%;     
     padding:0;
-    z-index:10; /*high z-index so always on top*/
+    z-index:10;
 
 }
 #logo{
     position:absolute;
-    width:22vh;
+    width:15vh;
     height:auto;
-    left:2vw;
+    left:3vw;
     
 }
 #settings-icon{
     position:absolute;
-    right:3vh;
-    height:8vh;
+    right:5vh;
+    height:5vh;
     width:auto;
 }
 #calendar-icon{
     position:absolute;
-    right:12.5vh;
-    height:8vh;
+    right:14.5vh;
+    height:5vh;
     width:auto;
 }
 #medal-icon{
     position:absolute;
-    right:22.5vh;
-    height:8vh;
+    right:24.5vh;
+    height:5vh;
     width:auto;
 }
 #wrapper{
     margin:0 auto;
     display:grid;
     grid-gap:1vw;
-    grid-template-columns: 20vw repeat(3, 1fr);
+    grid-template-columns: 15vw repeat(3, 1fr);
     padding:1vw;
 }
 #sidebar{
     position:fixed;
-    top:10%;
+    top:7%;
     bottom:0;
-    right:78.5%;
+    right:84%;
     left:0;
     background-color: green;
     z-index:2;
     opacity:0.9;
 }
-#assignments{
-    margin:1.5vh;
-    height:250px;
-    background-color: whitesmoke;
-}
+
 #commitments{
     margin:1.5vh;
     height:250px;
     background-color: whitesmoke;
 }
 #map{   
-    margin-top:10vh;
+    margin-top:7vh;
     grid-column:2/5;
     height:400px;
     background-color:yellow;
@@ -81,13 +77,24 @@ body{
     background-color: orange;
     opacity:0.9;
 }
+#chat-icon{
+    height:7vh;
+    width:auto;
+    
+}
+#notification-icon{
+    position:absolute;
+    top:0.5vh;
+    right:0;
+}
 #chat{
     text-align:center;
     position:fixed;
-    bottom:0.1vh;
-    right:1vw;
-    width:auto;
-    height:6vh;
+    bottom:4vh;
+    right:2vw;
+    border-radius: 100vw;
+    border-style: solid;
+    border-color: black;
     opacity:1;
     z-index:11;
 }

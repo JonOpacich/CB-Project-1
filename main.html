@@ -2,11 +2,7 @@
 <html>
 
 <head>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -14,6 +10,8 @@
     <title>Session: Study Together</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="assets/javascript/fireBase.js"></script>
     <script src="assets/javascript/main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
@@ -25,23 +23,22 @@
         <a class="navbar-brand" href="#"></a>
         <img src="assets/images/logo.jpg" class="d-inline-block align-top" id="logo" alt="Session">
         </a>
-        <input tabindex="0" data-trigger="focus" type="image" src="assets/images/settings-icon.png" id="settings-icon" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus" />
-        <input tabindex="0" data-trigger="focus" type="image" src="assets/images/calendar-icon.png" id="calendar-icon" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus" />
-        <input tabindex="0" data-trigger="focus" type="image" src="assets/images/medal-icon.png" id="medal-icon"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus" />
+        <input type="image" src="assets/images/settings-icon.png" id="settings-icon" />
+        <input type="image" src="assets/images/calendar-icon.png" id="calendar-icon" />
+        <input type="image" src="assets/images/medal-icon.png" id="medal-icon" />
     </nav>
     <!-- sidebar -->
     <div class="sidebar" id="sidebar">
         <aside class="sidebar" id="assignments">
-                <h5>Upcoming Assignments:</h5>
         </aside>
         <aside class="sidebar" id="commitments"></aside>
         <aside class="sidebar" id="tips"></aside>
     </div>
     <!-- chat -->
-    <button tabindex="0" data-trigger="focus" class="btn bg-secondary" id="chat" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-        <b>Messenger</b>
-        <span class="badge badge-primary">4</span>
-    </button>
+    <div id="chat">
+        <img src="assets/images/chat-icon.png" id="chat-icon" />
+        <span class="badge badge-dark" id="notification-icon">4</span>
+    </div>
     <!-- all components in wrapper div use css grid -->
     <div id="wrapper">
         <main class="" id="map"></main>
