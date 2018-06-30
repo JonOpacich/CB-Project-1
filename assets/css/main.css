@@ -71,6 +71,20 @@ body{
     height:400px;
     background-color:yellow;
 }
+#add-button{
+    position:absolute;
+    top:10%;
+    right:4.5%;
+    height:50px;
+    width:auto;
+    border-style:solid;
+    border-color:darkred;
+    border-radius:100em;
+    border-width: 1px;
+}
+#add{
+    opacity:1;
+}
 #sessions{
     grid-column: 2/5;
     height:200px;
@@ -112,4 +126,8 @@ body{
     grid-column: 4/5;
     height:200px;
     background-color: red;
+}
+#map {
+height: 600px;  /* The height is 400 pixels */  
+border-radius: 1vw;
 }
