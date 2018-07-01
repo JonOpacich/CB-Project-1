@@ -23,9 +23,28 @@
         <a class="navbar-brand" href="#"></a>
         <img src="assets/images/logo.jpg" class="d-inline-block align-top" id="logo" alt="Session">
         </a>
-        <input type="image" src="assets/images/settings-icon.png" id="settings-icon" />
-        <input type="image" src="assets/images/calendar-icon.png" id="calendar-icon" />
-        <input type="image" src="assets/images/medal-icon.png" id="medal-icon" />
+        <!-- dropdown content -->
+        <div class="dropdown" id="settings" id="settings-content">
+            <img src="assets/images/settings-icon.png" alt="settings-icon" id="settings-icon">
+            <div class="dropdown-content">
+                <img src="assets/images/settings-icon.png" alt="Cinque Terre">
+                <div class="desc">Beautiful Cinque Terre</div>
+            </div>
+        </div>
+        <div class="dropdown" id="calendar">
+            <img src="assets/images/calendar-icon.png" alt="settings-icon" id="calendar-icon">
+            <div class="dropdown-content" id="calendar-content">
+                <img src="assets/images/calendar-icon.png" alt="Cinque Terre">
+                <div class="desc">Beautiful Cinque Terre</div>
+            </div>
+        </div>
+        <div class="dropdown" id="medal">
+            <img src="assets/images/medal-icon.png" alt="settings-icon" id="medal-icon">
+            <div class="dropdown-content" id="medal-content">
+                <img src="assets/images/medal-icon.png" alt="Cinque Terre">
+                <div class="desc">Beautiful Cinque Terre</div>
+            </div>
+        </div>
     </nav>
     <!-- sidebar -->
     <div class="sidebar" id="sidebar">
@@ -34,14 +53,42 @@
         <aside class="sidebar" id="commitments"></aside>
         <aside class="sidebar" id="tips"></aside>
     </div>
-    <!-- chat -->
+    <!-- chat icon-->
     <div id="chat">
-        <img src="assets/images/chat-icon.png" id="chat-icon" />
-        <span class="badge badge-dark" id="notification-icon">4</span>
+        <input type="image" src="assets/images/chat-icon.png" id="chat-icon" />
+        <span class="badge badge-danger" id="notification-icon">4</span>
     </div>
-    <!-- all components in wrapper div use css grid -->
+    <!-- chat div -->
+    <div id="chat-div"></div>
+    <!-- all components in wrapper div use css grid(excluding #add-button)-->
     <div id="wrapper">
         <main id="map"></main>
+        <!-- make a session section -->
+        <aside class="add-event" id="add-event">
+            <h1 class="display-4">Create a Session</h1>
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <form id="form-layout">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Title</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Time</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Location</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Send Invites (Optional)</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </form>
+        </aside>
         <input type="image" src="assets/images/add.png" id="add-button" />
         <section id="sessions"></section>
         <section id="extra1"></section>
