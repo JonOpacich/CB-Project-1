@@ -1,0 +1,41 @@
+#loader{
+    position:relative;
+    left:30%;
+    top:30%
+}
+body{
+    background-image:url("../images/background.jpg");
+    /* Full height */
+    height: 100vh; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat:repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+#wrapper{
+    width:20vw;
+    height:auto;
+    background-color:white;
+    margin:25vh auto 0;
+    opacity:.95;
+    padding:1vw;
+    animation: slideIn 1.5s forwards 0s ease;
+}
+@keyframes slideIn{
+    0%{ transform: rotate(0) translateY(-100px);opacity:0;} 
+    20%{transform: rotate(0) translateY(-100px);opacity:0}
+    100%{ transform: rotate(0) translateY(0);opacity:1;}
+}
+#logo{
+    position:relative;
+    left:2.4vw;
+    width:25vh;
+
+}
+#disclaimer{
+    font-size: 7px;
+    width:90%;
+    margin:0 auto;
+}

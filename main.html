@@ -2,17 +2,16 @@
 <html>
 
 <head>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Session: Study Together</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="assets/javascript/fireBase.js"></script>
     <script src="assets/javascript/main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
@@ -24,31 +23,201 @@
         <a class="navbar-brand" href="#"></a>
         <img src="assets/images/logo.jpg" class="d-inline-block align-top" id="logo" alt="Session">
         </a>
-        <img src="assets/images/calendar-icon.png" id="calendar-icon">
+        <!-- dropdown content -->
+        <div class="dropdown" id="settings" id="settings-content">
+            <img src="assets/images/settings-icon.png" alt="settings-icon" id="settings-icon">
+            <div class="dropdown-content">
+                <img src="assets/images/settings-icon.png" alt="Cinque Terre">
+                <div class="desc">Lorem Ipsum</div>
+            </div>
+        </div>
+        <div class="dropdown" id="calendar">
+            <img src="assets/images/calendar-icon.png" alt="settings-icon" id="calendar-icon">
+            <div class="dropdown-content" id="calendar-content">
+                <img src="assets/images/calendar-icon.png" alt="Cinque Terre">
+                <div class="desc">Lorem Ipsum</div>
+            </div>
+        </div>
+        <div class="dropdown" id="medal">
+            <img src="assets/images/medal-icon.png" alt="settings-icon" id="medal-icon">
+            <div class="dropdown-content" id="medal-content">
+                <img src="assets/images/medal-icon.png" alt="Cinque Terre">
+                <div class="desc">Lorem Ipsum</div>
+            </div>
+        </div>
     </nav>
     <!-- sidebar -->
     <div class="sidebar" id="sidebar">
-        <aside class="sidebar" id="assignments"></aside>
+        <aside class="sidebar" id="assignments">
+        </aside>
         <aside class="sidebar" id="commitments"></aside>
         <aside class="sidebar" id="tips"></aside>
     </div>
-    <!-- chat -->
-    <button class="btn bg-secondary" id="chat">
-        <b>Messenger</b>
-        <span class="badge badge-primary">4</span>
-    </button>
-    <!-- all components in wrapper div use css grid -->
-    <div id="wrapper">
-        <main class="" id="map"></main>
-        <section id="sessions"></section>
-        <section id="extra1"></section>
-        <section id="extra2"></section>
+    <!-- chat icon-->
+    <div id="chat">
+        <input type="image" src="assets/images/chat-icon.png" id="chat-icon" />
+        <span class="badge badge-danger" id="notification-icon">4</span>
     </div>
+    <!-- chat div -->
+    <div id="chat-div"></div>
+    <!-- all components in wrapper div use css grid(excluding #add-button)-->
+    <div id="wrapper">
+        <main id="map"></main>
+        <!-- make a session section -->
+        <aside class="add-event" id="add-event">
+            <h1 class="display-4">Create a Session</h1>
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <form id="form-layout">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Title</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Time</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Location</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Send Invites (Optional)</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </form>
+        </aside>
+        <!-- add button -->
+        <input type="image" src="assets/images/add.png" id="add-button" />
+        <!-- active users -->
+        <section id="users-div">
+            <h1 class="display-3" id="sessions-title">
+                <b>Active Users</b>
+            </h1>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <span class="badge badge-success"> </span>
+                            Jon
+                        </th>
+                        <td>Jon@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <span class="badge badge-success"> </span>
+                            Amanda
+                        </th>
+                        <td>Amanda@yahoo.com</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <span class="badge badge-success"> </span>
+                            Brian
+                        </th>
+                        <td>Brian@outlook.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- available sessions -->
+        <section id="sessions-div">
+            <h1 class="display-3" id="sessions-title">
+                <b>Available Sessions</b>
+            </h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Date/Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Project Meeting</th>
+                        <td>Uptown Starbucks</td>
+                        <td>July 1st 4:30-7:00</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Review Resumes/Job Search</th>
+                        <td>Jon's House</td>
+                        <td>July 12th 5:00-?</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">React.js</th>
+                        <td>Classroom</td>
+                        <td> July 3rd 2:30-?</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+        <section id="forum-div"></section>
+    </div>
+
+    <!-- Footer -->
+    <section id="footer" class="section">
+        <div class="container">
+            <div class="row">
+                <h5>Developer Portfolios:</h5>
+                <div class="col-xs-12 col-sm-12 col-md-12 ">
+                    <ul class="list-unstyled list-inline developer text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa">Jonathan Opacich</i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa">Amanda Malmin</i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa">Brian Richardson</i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa">Samantha Prestige</i>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p>
+                        <U>Session: Study Together</U> is an open-source group project by Jonathan Opacich, Samantha Prestige,
+                        Amanda Malmin and Brian Richardson. Copyright 2018; Opacich, JW. Licensed under the Apache License,
+                        Version 2.0 (the "License"); you may not use this file except in compliance with the License. You
+                        may obtain a copy of the License at
+                        <a src="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> Unless required by applicable law or agreed to in writing, software distributed under
+                        the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+                        express or implied. See the License for the specific language governing permissions and limitations
+                        under the License.
+                    </p>
+                </div>
+                </hr>
+            </div>
+        </div>
+    </section>
+    <!-- ./Footer -->
     <!-- bootstrap CDN links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCk5A3HKmPbJQoTtpMg_RbAsy6NBEJS-Gk&callback=initMap">
+    </script>
 </body>
 
 </html>
