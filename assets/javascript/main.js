@@ -22,9 +22,6 @@ let database = firebase.database();
             google.maps.Map(document.getElementById('map'), options);
     }
 
-
-
-
 $(document).ready(function () {
 
         //onclick handler for 'add-session' form
@@ -54,25 +51,22 @@ $(document).ready(function () {
         $('.close').on('click', function () {
             closeForm();
         })
+    //onclick handler for chat
+    var chatButton = $('#chat-icon');
+    var chatDiv = $('#chat-div');
 
-
-        //onclick handler for chat
-        var chatButton = $('#chat-icon');
-        var chatDiv = $('#chat-div');
-
-        chatButton.on('click', function () {
-            if (chatDiv.hasClass('chat-animate')) {
-                chatDiv.removeClass('chat-animate');
-                chatDiv.offsetWidth = chatDiv.offsetWidth;
-                chatDiv.addClass("chat-hide");
-            }
-            else {
-                chatDiv.removeClass('chat-hide');
-                chatDiv.offsetWidth = chatDiv.offsetWidth;
-                chatDiv.addClass('chat-animate');
-
-            }
-        })
+    chatButton.on('click', function () {
+        if (chatDiv.hasClass('chat-animate')) {
+            chatDiv.removeClass('chat-animate');
+            chatDiv.offsetWidth = chatDiv.offsetWidth;
+            chatDiv.addClass("chat-hide");
+        }
+        else {
+            chatDiv.removeClass('chat-hide');
+            chatDiv.offsetWidth = chatDiv.offsetWidth;
+            chatDiv.addClass('chat-animate');
+        }
+    })
 
 
 
