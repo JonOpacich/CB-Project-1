@@ -28,7 +28,7 @@ $(document).ready(function () {
 
         dataBase.ref().push(NewMessage);
 
-        $("#input").val("")
+        $(".msgInput").val("")
         console.log("click");
 
 
@@ -50,7 +50,7 @@ $(document).ready(function () {
 
         var pTag = $('<p>')
 
-        $("#textChat").append(pTag)
+        $(".panel-body").append(pTag)
         $(pTag).append(textChat)
 
     });
