@@ -28,21 +28,21 @@
             <img src="assets/images/settings-icon.png" alt="settings-icon" id="settings-icon">
             <div class="dropdown-content">
                 <img src="assets/images/settings-icon.png" alt="Cinque Terre">
-                <div class="desc">Beautiful Cinque Terre</div>
+                <div class="desc">Lorem Ipsum</div>
             </div>
         </div>
         <div class="dropdown" id="calendar">
             <img src="assets/images/calendar-icon.png" alt="settings-icon" id="calendar-icon">
             <div class="dropdown-content" id="calendar-content">
                 <img src="assets/images/calendar-icon.png" alt="Cinque Terre">
-                <div class="desc">Beautiful Cinque Terre</div>
+                <div class="desc">Lorem Ipsum</div>
             </div>
         </div>
         <div class="dropdown" id="medal">
             <img src="assets/images/medal-icon.png" alt="settings-icon" id="medal-icon">
             <div class="dropdown-content" id="medal-content">
                 <img src="assets/images/medal-icon.png" alt="Cinque Terre">
-                <div class="desc">Beautiful Cinque Terre</div>
+                <div class="desc">Lorem Ipsum</div>
             </div>
         </div>
     </nav>
@@ -89,10 +89,73 @@
                 <button type="button" class="btn btn-primary">Submit</button>
             </form>
         </aside>
+        <!-- add button -->
         <input type="image" src="assets/images/add.png" id="add-button" />
-        <section id="sessions"></section>
-        <section id="extra1"></section>
-        <section id="extra2"></section>
+        <!-- active users -->
+        <section id="users-div">
+            <h1 class="display-3" id="sessions-title">
+                <b>Active Users</b>
+            </h1>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row"><span class="badge badge-success"> </span>
+                            Jon
+                        </th>
+                        <td>Jon@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><span class="badge badge-success"> </span>
+                            Amanda
+                        </th>
+                        <td>Amanda@yahoo.com</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><span class="badge badge-success"> </span>
+                            Brian
+                        </th>
+                        <td>Brian@outlook.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- available sessions -->
+        <section id="sessions-div">
+            <h1 class="display-3" id="sessions-title">
+                <b>Available Sessions</b>
+            </h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Date/Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Project Meeting</th>
+                        <td>Uptown Starbucks</td>
+                        <td>July 1st 4:30-7:00</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">Review Resumes/Job Search</th>
+                        <td>Jon's House</td>
+                        <td>July 12th 5:00-?</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row">React.js</th>
+                        <td>Classroom</td>
+                        <td> July 3rd 2:30-?</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+        <section id="forum-div"></section>
     </div>
     <!-- bootstrap CDN links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
