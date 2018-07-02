@@ -1,23 +1,18 @@
-//soooooooo we present a form where people fill out their availability by checking each box they're available each day of the week (travel times not included)
-//for what kind of time period? Generic? Go week by week? Option for each
-
 //this availability is stored on firebase with their login 
 
-//make it so need to answer address to un-hide the schedule form
 //schedule needs to update for every 2 weeks?
 
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyDpx_ce6nfAL5lmBW6m4j6SSCKPktPxmXM",
-    authDomain: "myfirstfirebase-8b3c3.firebaseapp.com",
-    databaseURL: "https://myfirstfirebase-8b3c3.firebaseio.com",
-    projectId: "myfirstfirebase-8b3c3",
-    storageBucket: "myfirstfirebase-8b3c3.appspot.com",
-    messagingSenderId: "83041360224"
-};
+    apiKey: "AIzaSyAGrun6JkFUDgSTJRFqDyPxzT0ymkDdPwI",
+    authDomain: "session-a4950.firebaseapp.com",
+    databaseURL: "https://session-a4950.firebaseio.com",
+    projectId: "session-a4950",
+    storageBucket: "session-a4950.appspot.com",
+    messagingSenderId: "298286458371"
+  };
 firebase.initializeApp(config);
 let database = firebase.database();
-
 
 
 let string = "";
@@ -65,8 +60,8 @@ $(document).ready(function () {
 
     //* need to convert from military time
     for (let hourIndex = 7; hourIndex < 22; hourIndex++) {
-        let firstTimeSlotNum = hourIndex;
-        let secondTimeSlotNum = hourIndex + 1;
+        let firstTimeSlotNum = moment(hourIndex, "k").format("h");
+        let secondTimeSlotNum = moment(hourIndex + 1, "k").format("h a");
         let timeSlot = `${firstTimeSlotNum}-${secondTimeSlotNum}`
 
         string = "";
@@ -85,9 +80,7 @@ $(document).ready(function () {
         } else if ($(this).attr("value") == "true") {
             $(this).attr("value", "false")
         }
-    })
-
-    //-----------------
+    });
 
 
     //submit address to Firebase/hide from view
@@ -103,7 +96,7 @@ $(document).ready(function () {
             city: city,
             state: state,
             zip: zip
-        })
+        });
 
         $("#addressForm").addClass("d-none");
         $("#schedule-form").removeClass("d-none");
