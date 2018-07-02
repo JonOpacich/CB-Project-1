@@ -13,6 +13,31 @@ function initMap() {
 
 $(document).ready(function () {
 
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAGrun6JkFUDgSTJRFqDyPxzT0ymkDdPwI",
+        authDomain: "session-a4950.firebaseapp.com",
+        databaseURL: "https://session-a4950.firebaseio.com",
+        projectId: "session-a4950",
+        storageBucket: "session-a4950.appspot.com",
+        messagingSenderId: "298286458371"
+    };
+    firebase.initializeApp(config)
+    database = firebase.database();
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            database.ref(`/users/${firebase.auth().currentUser.uid}`).set(
+                {
+                    address: "fdlkajflaksdjfklsaj"
+                }
+            )
+        } else {
+          // No user is signed in.
+        }
+      });
+    
+
     //onclick handler for 'add-session' form
     var eventButton = $('#add-event');
     var closeForm = () => {
@@ -44,7 +69,7 @@ $(document).ready(function () {
 
     //onclick handler for chat
     var chatButton = $('#chat-icon');
-    var chatDiv=$('#chat-div');
+    var chatDiv = $('#chat-div');
 
     chatButton.on('click', function () {
         if (chatDiv.hasClass('chat-animate')) {
@@ -56,7 +81,6 @@ $(document).ready(function () {
             chatDiv.removeClass('chat-hide');
             chatDiv.offsetWidth = chatDiv.offsetWidth;
             chatDiv.addClass('chat-animate');
-            
         }
     })
 
