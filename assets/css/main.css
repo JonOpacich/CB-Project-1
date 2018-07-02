@@ -2,12 +2,13 @@ body{
     background-image:url("../images/background.jpg");
     /* Full height */
     height: 100vh; 
-    
+    background-attachment: fixed;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat:repeat;
     background-size: cover;
     font-family: 'Roboto', sans-serif;
+    overflow-x:hidden;
 }
 #nav{
     position:fixed;
@@ -49,7 +50,7 @@ body{
     right:84%;
     left:0;
     background-color: green;
-    opacity:0.9;
+    opacity:1;
 }
 
 #commitments{
@@ -91,14 +92,14 @@ body{
     75%{transform:rotate(-5deg)}
 }
 .chat-animate{
-    animation: slideUp 0.3s forwards 0s ease-out;
+    animation: slideUp 0.15s forwards 0s ease-out;
 }
 @keyframes slideUp{
     0%{ transform:translateY(0);} 
     100%{ transform:translateY(-40vh);}
 }
 .chat-hide{
-    animation: slideDown 0.4s forwards 0s ease;
+    animation: slideDown 0.3s forwards 0s ease;
 }
 @keyframes slideDown{
     0%{ transform:translateY(-40vh);} 
@@ -233,4 +234,54 @@ body{
      right:1vw;
      top:1vw;
  }
+
+
+/* Footer */
+.section {
+    padding:20px 0 0 15vw;
+}
+.section p{
+    font-size: 0.5vw;
+}
+.section .section-title {
+    text-align: center;
+    color: #2e8eac;
+    text-transform: uppercase;
+}
+#footer {
+    background:#2e8eac;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.developer li{
+	padding: 3px 0;
+}
+#footer ul.developer li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.developer li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.developer li a,{
+	color:#ffffff;
+}
+#footer ul.developer li a:hover{
+	color:#eeeeee;
+}
+
+
 

@@ -21,12 +21,12 @@ body{
     margin:25vh auto 0;
     opacity:.95;
     padding:1vw;
-    animation: slideIn 1.3s forwards 0s ease;
+    animation: slideIn 1.5s forwards 0s ease;
 }
 @keyframes slideIn{
-    0%{ transform: rotate(0) translateY(-800px);} 
-    20%{transform: rotate(0) translateY(-800px);}
-    100%{ transform: rotate(0) translateY(0);}
+    0%{ transform: rotate(0) translateY(-100px);opacity:0;} 
+    20%{transform: rotate(0) translateY(-100px);opacity:0}
+    100%{ transform: rotate(0) translateY(0);opacity:1;}
 }
 #logo{
     position:relative;
