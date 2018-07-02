@@ -1,19 +1,4 @@
 $(document).ready(function () {
-    console.log("hello");
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBG5zoVaU3yU8-bB9L-uDCTgZrvsgOBc3Y",
-        authDomain: "chatapper-62bd2.firebaseapp.com",
-        databaseURL: "https://chatapper-62bd2.firebaseio.com",
-        projectId: "chatapper-62bd2",
-        storageBucket: "chatapper-62bd2.appspot.com",
-        messagingSenderId: "346477478931"
-    };
-    firebase.initializeApp(config);
-
-
-    var dataBase = firebase.database()
-
 
 
     $("#submit").on("click", function (event) {
@@ -26,7 +11,7 @@ $(document).ready(function () {
 
         };
 
-        dataBase.ref().push(NewMessage);
+        database.ref().push(NewMessage);
 
         $(".msgInput").val("")
         console.log("click");
@@ -34,14 +19,14 @@ $(document).ready(function () {
 
     });
 
-    dataBase.ref().on("child_added", function (childSnapShot) {
+    database.ref().on("child_added", function (childSnapShot) {
 
         var message = childSnapShot.val().text;
 
         $("#message-board").append(message)
     })
 
-    dataBase.ref().on("child_added", function (childSnapshot) {
+    database.ref().on("child_added", function (childSnapshot) {
         console.log(childSnapshot.val());
 
 
