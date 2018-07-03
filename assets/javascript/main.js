@@ -27,7 +27,7 @@ function initMap() {
                 lng = snapshot.child(`/users/${userId}/lng`).val()
            
             let options = {
-                zoom: 14,
+                zoom: 11,
                 center: { lat: parseFloat(lat), lng: parseFloat(lng) },
                 // center: { lat: 45, lng: -93.26 },
             };
