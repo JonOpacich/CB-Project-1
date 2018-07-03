@@ -10,6 +10,7 @@
     <title>Session: Study Together</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/chat.css" />
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="assets/javascript/main.js"></script>
     <script src="assets/javascript/chat.js"></script>
@@ -110,14 +111,16 @@
                 <div class="panel-body">
                 </div>
 
-            </div>
-            <div class="form-group">
-                <div id="textChat"></div>
-
-                <input type="text" class="form-control msgInput" placeholder="Message here...">
-            </div>
-            <button type="submit" id="submit" class="btn btn-default">Send</button>
         </div>
+        <div class="form-group">
+            <form>
+                <div id="textChat"></div>
+               
+            <input type="text" class="form-control msgInput" placeholder="Message here...">
+        
+        <button type="submit" id="submit" class="btn btn-default">Send</button>
+    </form>
+    </div>
     </div>
     <!-- all components in wrapper div use css grid(excluding #add-button)-->
     <div id="wrapper">
