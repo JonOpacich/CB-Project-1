@@ -44,19 +44,26 @@ body{
     padding:1vw;
 }
 #sidebar{
+    display:grid;
+    grid-template-rows:1fr 0.66fr 0.33fr;
     position:fixed;
     top:7%;
     bottom:0;
     right:84%;
     left:0;
-    background-color: green;
+    background-color:rgb(236, 201, 0);
     opacity:1;
 }
 
 #commitments{
+    grid-row:2/3;
     margin:1.5vh;
-    height:250px;
-    background-color: whitesmoke;
+    background-color: rgb(236, 201, 0);
+}
+#tips{
+    grid-row:3/4;
+    margin:1.5vh;
+    background-color: rgb(236, 201, 0);
 }
 #map{   
     margin-top:7vh;
@@ -136,22 +143,16 @@ body{
 .badge{
     margin:0 0.5vw;
 }
-#forum-div{
-    grid-column: 2/5;
-    height:200px;
-    background-color: orange;
-    opacity:0.9;
-}
 #users-div{
+    grid-row:1/2;
     opacity:0.95;
-    grid-column: 2/3;
-    background-color: whitesmoke;
+    background-color: rgb(236, 201, 0);
     border-radius:0.5vw;
-    height:auto;
+    overflow:hidden;
 }
 #sessions-div{
     opacity:0.95;
-    grid-column: 3/5;
+    grid-column: 2/5;
     height:auto;
     background-color:whitesmoke;
     border-radius:0.5vw;
@@ -235,6 +236,9 @@ body{
      top:1vw;
  }
 
+.list-group{
+    font-size: 13px;
+}
 
 /* Footer */
 .section {
