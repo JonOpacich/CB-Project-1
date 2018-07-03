@@ -34,44 +34,44 @@ $(document).ready(function () {
             `<td>
                 <div class="form-group">
                     <select class="form-control dropdownStart index-${dayIndex}" id="start-${boxIndex}">
-                        <option value=0>Start Time</option>
-                        <option value=1>7:00 AM</option>
-                        <option value=2>8:00 AM</option>
-                        <option value=3>9:00 AM</option>
-                        <option value=4>10:00 AM</option>
-                        <option value=5>11:00 AM</option>
-                        <option value=6>12:00 PM</option>
-                        <option value=7>1:00 PM</option>
-                        <option value=8>2:00 PM</option>
-                        <option value=9>3:00 PM</option>
-                        <option value=10>4:00 PM</option>
-                        <option value=11>5:00 PM</option>
-                        <option value=12>6:00 PM</option>
-                        <option value=13>7:00 PM</option>
-                        <option value=14>8:00 PM</option>
-                        <option value=15>9:00 PM</option>
-                        <option value=16>10:00 PM</option>
+                        <option>Start Time</option>
+                        <option>7:00 AM</option>
+                        <option>8:00 AM</option>
+                        <option>9:00 AM</option>
+                        <option>10:00 AM</option>
+                        <option>11:00 AM</option>
+                        <option>12:00 PM</option>
+                        <option>1:00 PM</option>
+                        <option>2:00 PM</option>
+                        <option>3:00 PM</option>
+                        <option>4:00 PM</option>
+                        <option>5:00 PM</option>
+                        <option>6:00 PM</option>
+                        <option>7:00 PM</option>
+                        <option>8:00 PM</option>
+                        <option>9:00 PM</option>
+                        <option>10:00 PM</option>
                     </select>
                 <p class="text-center"> until </p>
                 <div class="form-group">
                     <select class="form-control dropdownEnd index-${dayIndex}" id="end-${boxIndex}">
-                    <option value=0>End Time</option>
-                    <option value=1>7:00 AM</option>
-                    <option value=2>8:00 AM</option>
-                    <option value=3>9:00 AM</option>
-                    <option value=4>10:00 AM</option>
-                    <option value=5>11:00 AM</option>
-                    <option value=6>12:00 PM</option>
-                    <option value=7>1:00 PM</option>
-                    <option value=8>2:00 PM</option>
-                    <option value=9>3:00 PM</option>
-                    <option value=10>4:00 PM</option>
-                    <option value=11>5:00 PM</option>
-                    <option value=12>6:00 PM</option>
-                    <option value=13>7:00 PM</option>
-                    <option value=14>8:00 PM</option>
-                    <option value=15>9:00 PM</option>
-                    <option value=16>10:00 PM</option>
+                        <option>End Time</option>
+                        <option>7:00 AM</option>
+                        <option>8:00 AM</option>
+                        <option>9:00 AM</option>
+                        <option>10:00 AM</option>
+                        <option>11:00 AM</option>
+                        <option>12:00 PM</option>
+                        <option>1:00 PM</option>
+                        <option>2:00 PM</option>
+                        <option>3:00 PM</option>
+                        <option>4:00 PM</option>
+                        <option>5:00 PM</option>
+                        <option>6:00 PM</option>
+                        <option>7:00 PM</option>
+                        <option>8:00 PM</option>
+                        <option>9:00 PM</option>
+                        <option>10:00 PM</option>
                     </select>
                 </div>
         </td>`
@@ -146,15 +146,12 @@ $(document).ready(function () {
         $("#schedule-form").removeClass("d-none");
     })
 
-    //capturing schedule from form
-    //taking a break from this part....
-
-    //for each index of select, when each one is changed
 
 
-    //submit schedule to Firebase
+    //when click submit button
     $("#schedule-submit-btn").on("click", function (event) {
         event.preventDefault();
+        //captures which times have been added and saves its day/time to Firebase 
         for (let i = 0; i < 7; i++) {
             let selectStartId = "#start-" + i;
             // console.log(selectStartId)
@@ -193,8 +190,8 @@ $(document).ready(function () {
             console.log("no user")
         }
 
-        //this will redirect to main page, need to insert link
-        // location.href = "main.html";
+        //this will redirect to main page (comment out for testing)
+        location.href = "main.html";
     })
 
 
