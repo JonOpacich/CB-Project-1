@@ -51,19 +51,26 @@ body{
     bottom:0;
     right:84%;
     left:0;
-    background-color:rgb(236, 201, 0);
+    background-color:#FFC400;
     opacity:1;
 }
 
 #commitments{
-    grid-row:2/3;
-    margin:1.5vh;
-    background-color: rgb(236, 201, 0);
+    text-align:center;
+    width:15vw;
+    height:auto;
+    margin: 0 auto;
+    grid-row-end:2/3;
+    background-color: #FFC400;
+}
+.com-li {
+    font-size:0.7vw !important;
 }
 #tips{
+    font-size:1vw;
     grid-row:3/4;
     margin:1.5vh;
-    background-color: rgb(236, 201, 0);
+    background-color: #FFC400;
 }
 #map{   
     margin-top:7vh;
@@ -86,7 +93,7 @@ body{
     opacity:1;
 }
 #chat-icon{
-    height:3vw;
+    height:70px;
     width:auto;
 }
 #chat-icon:hover{
@@ -103,21 +110,21 @@ body{
 }
 @keyframes slideUp{
     0%{ transform:translateY(0);} 
-    100%{ transform:translateY(-40vh);}
+    100%{ transform:translateY(-500px);}
 }
 .chat-hide{
     animation: slideDown 0.3s forwards 0s ease;
 }
 @keyframes slideDown{
-    0%{ transform:translateY(-40vh);} 
+    0%{ transform:translateY(-500px);} 
     100%{ transform:translateY(0);}
 }
 #chat-div{
     position:fixed;
-    bottom:-41vh;
+    bottom:-510px;
     right:6vw;
-    width:17vw;
-    height:40vh;
+    width:400px;
+    height:500px;
     background-color:whitesmoke;
     z-index:10;
     border-top-left-radius:0.5vw;
@@ -142,13 +149,27 @@ body{
 }
 .badge{
     margin:0 0.5vw;
+    border-radius: 10vw;
 }
 #users-div{
+    font-size: 1vw;
     grid-row:1/2;
     opacity:0.95;
-    background-color: rgb(236, 201, 0);
+    background-color: #FFC400;
     border-radius:0.5vw;
     overflow:hidden;
+}
+#users-title{
+    font-size:1.5vw;
+    text-align:center;
+}
+.dot{
+    height: 10px;
+    width: 10px;
+    background-color: rgb(47, 180, 13);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right:10px;
 }
 #sessions-div{
     opacity:0.95;
