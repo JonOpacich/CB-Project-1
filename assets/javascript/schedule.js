@@ -113,9 +113,7 @@ $(document).ready(function () {
             } else {
                 // No user is signed in.
                 console.log("no user");
-
             }
-            // });
 
         });
 
@@ -148,7 +146,7 @@ $(document).ready(function () {
         }
 
         //this will redirect to main page, need to insert link
-        location.href = "#";
+        location.href = "main.html";
     })
 
 
