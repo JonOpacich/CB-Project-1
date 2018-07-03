@@ -11,7 +11,7 @@ $(document).ready(function () {
 
         };
 
-        database.ref().push(NewMessage);
+        database.ref("/chat").push(NewMessage);
 
         $(".msgInput").val("")
         console.log("click");
@@ -19,14 +19,16 @@ $(document).ready(function () {
 
     });
 
-    database.ref().on("child_added", function (childSnapShot) {
+
+   
+    database.ref("/chat").on("child_added", function (childSnapShot) {
 
         var message = childSnapShot.val().text;
 
         $("#message-board").append(message)
     })
 
-    database.ref().on("child_added", function (childSnapshot) {
+    database.ref("/chat").on("child_added", function (childSnapshot) {
         console.log(childSnapshot.val());
 
 
