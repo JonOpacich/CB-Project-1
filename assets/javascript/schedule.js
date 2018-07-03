@@ -53,7 +53,6 @@ $(document).ready(function () {
             `<tr> <th scope="row">${timeSlot}</th>` + createCheckboxes() + `</tr>`
         );
         hourPosition++;
-
     }
 
 
@@ -93,34 +92,31 @@ $(document).ready(function () {
             lng = response.results[0].geometry.location.lng.toFixed(3);
 
             // adding info to firebase user data
+            // firebase.auth().onAuthStateChanged(function (user) {
             let user = firebase.auth().currentUser;
 
             if (user) {
                 // User is signed in.
+                console.log("working");
                 database.ref(`/users/${firebase.auth().currentUser.uid}`).set(
                     {
                         name: name,
                         lat: lat,
                         lng: lng
-                    },
-                    database.ref(`/addressList/${firebase.auth().currentUser.uid}`).push(
+                    });
+                    database.ref(`/addressList/${firebase.auth().currentUser.uid}`).set(
                         {
                             name: name,
                             lat: lat,
                             lng: lng
-                        }))
+                        });
             } else {
                 // No user is signed in.
-                console.log("no user")
+                console.log("no user");
 
             }
+            // });
 
-            //below is just for testing purposes
-            database.ref("User Address").push({
-                name: name,
-                lat: lat,
-                lng: lng
-            })
         });
 
 
@@ -143,17 +139,13 @@ $(document).ready(function () {
             // User is signed in.
             database.ref(`/users/${firebase.auth().currentUser.uid}/availability`).set(
                 {
-                    availability: userScheduleArray
+                    userScheduleArray
                 })
         } else {
             // No user is signed in.
             console.log("no user")
 
         }
-        //below is just for testing purposes
-        database.ref("User Schedule").push({
-            availability: userScheduleArray
-        })
 
         //this will redirect to main page, need to insert link
         location.href = "#";
