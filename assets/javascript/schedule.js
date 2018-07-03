@@ -1,5 +1,4 @@
 //make this giant if statment so may just skip the whole thing if already entered info
-//this availability is stored on firebase with their login 
 //schedule needs to update for every 2 weeks?
 
 // Initialize team Firebase
@@ -15,45 +14,72 @@ firebase.initializeApp(config);
 let database = firebase.database();
 
 
-let string = "";
-let hourPosition = 7;
 let userScheduleArray = [];
 
-//creates horizontal checkbox based on how many days of the week displayed, set specific id for each one
-function createCheckboxes() {
-    let scheduleLength = 7;
-    let weekdayPosition = 0;
-    for (let checkboxIndex = 0; checkboxIndex < scheduleLength; checkboxIndex++) {
-        string = string + `<td><div class="form-check"><input class="form-check-input position-static" type="checkbox" id="day-${weekdayPosition}-hr-${hourPosition}" day-val="index-${weekdayPosition}" hr-val="hr-${hourPosition}" value=false aria-label="..."></div></td>`
-        weekdayPosition++;
-    }
-    return string;
-}
 
 $(document).ready(function () {
 
     // displays days of week starting with Sunday
     let tableDay = "";
+    let dayIndex = 0;
+    let boxIndex = 0;
     for (let weekdayIndex = 7; weekdayIndex > 0; weekdayIndex--) {
+
         tableDay = moment().day(0 - weekdayIndex).format("dddd");
         $("#table-header").append(
             `<th scope="col">${tableDay}</th>`
         );
-    }
 
-
-    //displays study times 7am-10pm
-    for (let hourIndex = 7; hourIndex < 22; hourIndex++) {
-        let firstTimeSlotNum = moment(hourIndex, "k").format("h");
-        let secondTimeSlotNum = moment(hourIndex + 1, "k").format("h a");
-        let timeSlot = `${firstTimeSlotNum}-${secondTimeSlotNum}`
-
-        string = "";
         $("#table-body").append(
-            `<tr> <th scope="row">${timeSlot}</th>` + createCheckboxes() + `</tr>`
+            `<td>
+                <div class="form-group">
+                    <select class="form-control dropdownStart index-${dayIndex}" id="start-${boxIndex}">
+                        <option value=0>Start Time</option>
+                        <option value=1>7:00 AM</option>
+                        <option value=2>8:00 AM</option>
+                        <option value=3>9:00 AM</option>
+                        <option value=4>10:00 AM</option>
+                        <option value=5>11:00 AM</option>
+                        <option value=6>12:00 PM</option>
+                        <option value=7>1:00 PM</option>
+                        <option value=8>2:00 PM</option>
+                        <option value=9>3:00 PM</option>
+                        <option value=10>4:00 PM</option>
+                        <option value=11>5:00 PM</option>
+                        <option value=12>6:00 PM</option>
+                        <option value=13>7:00 PM</option>
+                        <option value=14>8:00 PM</option>
+                        <option value=15>9:00 PM</option>
+                        <option value=16>10:00 PM</option>
+                    </select>
+                <p class="text-center"> until </p>
+                <div class="form-group">
+                    <select class="form-control dropdownEnd index-${dayIndex}" id="end-${boxIndex}">
+                    <option value=0>End Time</option>
+                    <option value=1>7:00 AM</option>
+                    <option value=2>8:00 AM</option>
+                    <option value=3>9:00 AM</option>
+                    <option value=4>10:00 AM</option>
+                    <option value=5>11:00 AM</option>
+                    <option value=6>12:00 PM</option>
+                    <option value=7>1:00 PM</option>
+                    <option value=8>2:00 PM</option>
+                    <option value=9>3:00 PM</option>
+                    <option value=10>4:00 PM</option>
+                    <option value=11>5:00 PM</option>
+                    <option value=12>6:00 PM</option>
+                    <option value=13>7:00 PM</option>
+                    <option value=14>8:00 PM</option>
+                    <option value=15>9:00 PM</option>
+                    <option value=16>10:00 PM</option>
+                    </select>
+                </div>
+        </td>`
         );
-        hourPosition++;
+        dayIndex++;
+        boxIndex++;
     }
+
 
 
     //change the value of each check box from true/false when checked/unchecked
@@ -103,17 +129,16 @@ $(document).ready(function () {
                         lat: lat,
                         lng: lng
                     });
-                    database.ref(`/addressList/${firebase.auth().currentUser.uid}`).set(
-                        {
-                            name: name,
-                            lat: lat,
-                            lng: lng
-                        });
+                database.ref(`/addressList/${firebase.auth().currentUser.uid}`).set(
+                    {
+                        name: name,
+                        lat: lat,
+                        lng: lng
+                    });
             } else {
                 // No user is signed in.
                 console.log("no user");
             }
-
         });
 
 
@@ -121,31 +146,55 @@ $(document).ready(function () {
         $("#schedule-form").removeClass("d-none");
     })
 
+    //capturing schedule from form
+    //taking a break from this part....
+
+    //for each index of select, when each one is changed
+
+
     //submit schedule to Firebase
     $("#schedule-submit-btn").on("click", function (event) {
         event.preventDefault();
-        $(".form-check-input").each(function () {
-            if ($(this).attr("value") == "true") {
-                userScheduleArray.push($(this).attr("id"));
+        for (let i = 0; i < 7; i++) {
+            let selectStartId = "#start-" + i;
+            // console.log(selectStartId)
+            selectStartIdText = $(`${selectStartId} option:selected`).text();
+            let selectEndId = "#end-" + i;
+            // console.log(selectEndId)
+            selectEndIdText = $(`${selectEndId} option:selected`).text();
+
+            if (selectStartIdText !== "Start Time" || selectEndIdText !== "End Time") {
+                let dayOfWeekArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                let dayOfWeek = "";
+
+                dayOfWeekArray.forEach(function (item, i) {
+                    if (("#start-" + i) === selectStartId) {
+                        dayOfWeek = item;
+                    }
+                })
+                userScheduleArray.push({
+                    day: dayOfWeek,
+                    time: selectStartIdText + " - " + selectEndIdText
+                })
             }
-        })
+        }
+
         console.log(userScheduleArray)
         let user = firebase.auth().currentUser;
 
         if (user) {
             // User is signed in.
-            database.ref(`/users/${firebase.auth().currentUser.uid}/availability`).set(
+            database.ref(`/availability/${firebase.auth().currentUser.uid}`).set(
                 {
                     userScheduleArray
                 })
         } else {
             // No user is signed in.
             console.log("no user")
-
         }
 
         //this will redirect to main page, need to insert link
-        location.href = "main.html";
+        // location.href = "main.html";
     })
 
 

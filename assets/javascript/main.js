@@ -97,52 +97,6 @@ $(document).ready(function () {
     })
 
 
-    // //pulling and displaying matching schedule
-    // let weekdayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    // // //pulling schedule from firebase
-    // let availability;
-    // // let userId = firebase.auth().currentUser.uid;
-    // console.log(userId)
-    // if (userId) {
-    //     // User is signed in.
-    //     console.log("working");
-    //     console.log(database.ref(`/users/${userId}`).val())
-    // } else {
-    //     // No user is signed in.
-    //     console.log("no user");
-    // }
-    // function userSchedule() {
-
-
-
-    // console.log(database.ref(`/addressList/${firebase.auth().currentUser.uid}`))
-    // database.ref().on("value", function (snapshot) {
-    //     let currentUser = firebase.auth().currentUser.uid
-    //     console.log(snapshot.child("users").uid)
-
-    //     snapshot.child("users").forEach(function (item) {
-    //         if (item.key === firebase.auth().currentUser.uid) {
-    //             availability = item.val().availability.userScheduleArray;
-    //         }
-    //         console.log(availability)
-
-    //     })
-
-    //     return availability
-    // }) 
-    // return availability
-
-    // };
-
-    //if the day attribute matches the index of week, display Day plus hours of hr att
-    // userSchedule().forEach(item => {
-    //     console.log(item)
-    // })
-    // console.log(userSchedule());
-
-
-
-
 })
 
 
