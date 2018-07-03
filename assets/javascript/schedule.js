@@ -10,7 +10,7 @@ var config = {
     projectId: "session-a4950",
     storageBucket: "session-a4950.appspot.com",
     messagingSenderId: "298286458371"
-  };
+};
 firebase.initializeApp(config);
 let database = firebase.database();
 
@@ -41,23 +41,6 @@ $(document).ready(function () {
         );
     }
 
-    //The section enters days of the week based on today, focusing on generic schedule above for now.
-    //starts at the top of this week
-    /* for (let weekdayIndex = 7; weekdayIndex > 0; weekdayIndex--) {
-        tableDay = moment().day(0 - weekdayIndex).format("ddd Do");
-        $("#table-header").append(
-            `<th scope="col">${tableDay}</th>`
-        );
-    }
-    //goes into next week
-    for (let weekdayIndex = 0; weekdayIndex < 7; weekdayIndex++) {
-        tableDay = moment().day(0 + weekdayIndex).format("ddd Do");
-        $("#table-header").append(
-            `<th scope="col">${tableDay}</th>`
-        )
-    } 
-    // *add disable class if todays date is after the date list on the top of the form somehow.....
-    */
 
     //displays study times 7am-10pm
     for (let hourIndex = 7; hourIndex < 22; hourIndex++) {
@@ -102,24 +85,49 @@ $(document).ready(function () {
             "crossDomain": true,
             "url": queryURL,
             "method": "GET",
-            }
-          
-          $.ajax(settings).done(function (response) {
+        }
+
+        //geocoding the address, rounding to 3 digits
+        $.ajax(settings).done(function (response) {
             lat = response.results[0].geometry.location.lat.toFixed(3);
             lng = response.results[0].geometry.location.lng.toFixed(3);
 
+            // adding info to firebase user data
+            let user = firebase.auth().currentUser;
+
+            if (user) {
+                // User is signed in.
+                database.ref(`/users/${firebase.auth().currentUser.uid}`).set(
+                    {
+                        name: name,
+                        lat: lat,
+                        lng: lng
+                    },
+                    database.ref(`/addressList/${firebase.auth().currentUser.uid}`).push(
+                        {
+                            name: name,
+                            lat: lat,
+                            lng: lng
+                        }))
+            } else {
+                // No user is signed in.
+                console.log("no user")
+
+            }
+
+            //below is just for testing purposes
             database.ref("User Address").push({
                 name: name,
                 lat: lat,
                 lng: lng
-            });
+            })
         });
-        
+
 
         $("#addressForm").addClass("d-none");
         $("#schedule-form").removeClass("d-none");
     })
-    
+
     //submit schedule to Firebase
     $("#schedule-submit-btn").on("click", function (event) {
         event.preventDefault();
@@ -128,9 +136,27 @@ $(document).ready(function () {
                 userScheduleArray.push($(this).attr("id"));
             }
         })
+        console.log(userScheduleArray)
+        let user = firebase.auth().currentUser;
+
+        if (user) {
+            // User is signed in.
+            database.ref(`/users/${firebase.auth().currentUser.uid}/availability`).set(
+                {
+                    availability: userScheduleArray
+                })
+        } else {
+            // No user is signed in.
+            console.log("no user")
+
+        }
+        //below is just for testing purposes
         database.ref("User Schedule").push({
             availability: userScheduleArray
         })
+
+        //this will redirect to main page, need to insert link
+        location.href = "#";
     })
 
 
