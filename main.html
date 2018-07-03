@@ -14,7 +14,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="assets/javascript/main.js"></script>
     <script src="assets/javascript/chat.js"></script>
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
 </head>
@@ -29,31 +29,71 @@
         <div class="dropdown" id="settings" id="settings-content">
             <img src="assets/images/settings-icon.png" alt="settings-icon" id="settings-icon">
             <div class="dropdown-content">
-                <img src="assets/images/settings-icon.png" alt="Cinque Terre">
-                <div class="desc">Lorem Ipsum</div>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Update Schedule</a>
+                    <a href="#" class="list-group-item list-group-item-action">Log Out</a>
+                </div>
             </div>
         </div>
         <div class="dropdown" id="calendar">
             <img src="assets/images/calendar-icon.png" alt="settings-icon" id="calendar-icon">
             <div class="dropdown-content" id="calendar-content">
-                    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=g9nvr4dhamlpmsr44sj2dn8ul0%40group.calendar.google.com&amp;color=%23333333&amp;ctz=America%2FChicago" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=g9nvr4dhamlpmsr44sj2dn8ul0%40group.calendar.google.com&amp;color=%23333333&amp;ctz=America%2FChicago"
+                    style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
             </div>
         </div>
         <div class="dropdown" id="medal">
             <img src="assets/images/medal-icon.png" alt="settings-icon" id="medal-icon">
             <div class="dropdown-content" id="medal-content">
-                <img src="assets/images/medal-icon.png" alt="Cinque Terre">
-                <div class="desc">Lorem Ipsum</div>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Achievement #1</a>
+                    <a href="#" class="list-group-item list-group-item-action">Achievement #2</a>
+                    <a href="#" class="list-group-item list-group-item-action">Achievement #3</a>
+                </div>
             </div>
         </div>
     </nav>
     <!-- sidebar -->
     <div class="sidebar" id="sidebar">
-        <aside class="sidebar" id="assignments">
+        <section id="users-div">
+            <h1 class="display-3" id="users-title">
+                <!-- active users -->
+                <b>Active Users</b>
+            </h1>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th class="row">
+                            <td><span class="dot"></span>Jon@gmail.com</td> 
+                            
+                    </tr>
+                    <tr>
+                        <th class="row">
+                            <td><span class="dot"></span>Amanda@yahoo.com</td>
+                            
+                    </tr>
+                    <tr>
+                        <th class="row">
+                          
+                            <td><span class="dot"></span>Brian@outlook.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <aside class="sidebar" id="commitments">
+            <div class="list-group">
+                <li class="list-group-item list-group-item-action active com-li">Your Upcoming Sessions</li>
+                <a href="#" class="list-group-item list-group-item-action com-li">
+                    <b>Project Meeting</b> 07.01</a>
+            </div>
         </aside>
-        <aside class="sidebar" id="commitments"></aside>
-        <aside class="sidebar" id="tips"></aside>
+        <aside class="sidebar" id="tips">
+            <h4>Tip</h4>
+            <hr>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At, laboriosam temporibus impedit rerum commodi quos,
+                excepturi perferendis nesciunt</p>
+        </aside>
     </div>
     <!-- chat icon-->
     <div id="chat">
@@ -62,14 +102,14 @@
     </div>
     <!-- chat div -->
     <!-- <iframe src="//fiddle.jshell.net/firebase/dy1fmc5b/show/light/" frameborder="0" sandbox="allow-forms allow-scripts allow-same-origin allow-modals allow-popups" allow="midi; geolocation; microphone; camera; encrypted-media;"></iframe> -->
-    
+
     <div id="chat-div">
-    <br>
-    <div class="container">
-        <div class="panel panel-primary">
-            <div class="panel-heading">Chat</div>
-            <div class="panel-body">
-            </div>
+        <br>
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Chat</div>
+                <div class="panel-body">
+                </div>
 
         </div>
         <div class="form-group">
@@ -82,10 +122,6 @@
     </form>
     </div>
     </div>
-    </div>
-
-
-
     <!-- all components in wrapper div use css grid(excluding #add-button)-->
     <div id="wrapper">
         <main id="map"></main>
@@ -101,8 +137,12 @@
                     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Time</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                    <label for="formGroupExampleInput2" style="display:block">Time</label>
+                    <span>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" style="width:45%;display:inline-block"> -
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input"
+                            style="width:45%;display:inline-block">
+                    </span>
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Location</label>
@@ -117,37 +157,7 @@
         </aside>
         <!-- add button -->
         <input type="image" src="assets/images/add.png" id="add-button" />
-        <!-- active users -->
-        <section id="users-div">
-            <h1 class="display-3" id="sessions-title">
-                <b>Active Users</b>
-            </h1>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th scope="row">
-                            <span class="badge badge-success"> </span>
-                            Jon
-                        </th>
-                        <td>Jon@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="badge badge-success"> </span>
-                            Amanda
-                        </th>
-                        <td>Amanda@yahoo.com</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <span class="badge badge-success"> </span>
-                            Brian
-                        </th>
-                        <td>Brian@outlook.com</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+
         <!-- available sessions -->
         <section id="sessions-div">
             <h1 class="display-3" id="sessions-title">
@@ -182,9 +192,7 @@
                     </tr>
                 </tbody>
             </table>
-
         </section>
-        <section id="forum-div"></section>
     </div>
 
     <!-- Footer -->
@@ -214,7 +222,7 @@
                                 <i class="fa">Samantha Prestidge</i>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </div>
                 </hr>

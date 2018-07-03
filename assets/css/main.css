@@ -44,19 +44,33 @@ body{
     padding:1vw;
 }
 #sidebar{
+    display:grid;
+    grid-template-rows:1fr 0.66fr 0.33fr;
     position:fixed;
     top:7%;
     bottom:0;
     right:84%;
     left:0;
-    background-color: green;
+    background-color:#FFC400;
     opacity:1;
 }
 
 #commitments{
+    text-align:center;
+    width:15vw;
+    height:auto;
+    margin: 0 auto;
+    grid-row-end:2/3;
+    background-color: #FFC400;
+}
+.com-li {
+    font-size:0.7vw !important;
+}
+#tips{
+    font-size:1vw;
+    grid-row:3/4;
     margin:1.5vh;
-    height:250px;
-    background-color: whitesmoke;
+    background-color: #FFC400;
 }
 #map{   
     margin-top:7vh;
@@ -79,7 +93,7 @@ body{
     opacity:1;
 }
 #chat-icon{
-    height:3vw;
+    height:70px;
     width:auto;
 }
 #chat-icon:hover{
@@ -96,21 +110,21 @@ body{
 }
 @keyframes slideUp{
     0%{ transform:translateY(0);} 
-    100%{ transform:translateY(-40vh);}
+    100%{ transform:translateY(-500px);}
 }
 .chat-hide{
     animation: slideDown 0.3s forwards 0s ease;
 }
 @keyframes slideDown{
-    0%{ transform:translateY(-40vh);} 
+    0%{ transform:translateY(-500px);} 
     100%{ transform:translateY(0);}
 }
 #chat-div{
     position:fixed;
-    bottom:-41vh;
+    bottom:-510px;
     right:6vw;
-    width:17vw;
-    height:40vh;
+    width:400px;
+    height:500px;
     background-color:whitesmoke;
     z-index:10;
     border-top-left-radius:0.5vw;
@@ -135,23 +149,31 @@ body{
 }
 .badge{
     margin:0 0.5vw;
-}
-#forum-div{
-    grid-column: 2/5;
-    height:200px;
-    background-color: orange;
-    opacity:0.9;
+    border-radius: 10vw;
 }
 #users-div{
+    font-size: 1vw;
+    grid-row:1/2;
     opacity:0.95;
-    grid-column: 2/3;
-    background-color: whitesmoke;
+    background-color: #FFC400;
     border-radius:0.5vw;
-    height:auto;
+    overflow:hidden;
+}
+#users-title{
+    font-size:1.5vw;
+    text-align:center;
+}
+.dot{
+    height: 10px;
+    width: 10px;
+    background-color: rgb(47, 180, 13);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right:10px;
 }
 #sessions-div{
     opacity:0.95;
-    grid-column: 3/5;
+    grid-column: 2/5;
     height:auto;
     background-color:whitesmoke;
     border-radius:0.5vw;
@@ -235,6 +257,9 @@ body{
      top:1vw;
  }
 
+.list-group{
+    font-size: 13px;
+}
 
 /* Footer */
 .section {
