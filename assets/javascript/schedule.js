@@ -24,7 +24,7 @@ function createCheckboxes() {
     let scheduleLength = 7;
     let weekdayPosition = 0;
     for (let checkboxIndex = 0; checkboxIndex < scheduleLength; checkboxIndex++) {
-        string = string + `<td><div class="form-check"><input class="form-check-input position-static" type="checkbox" id="day-${weekdayPosition}-hr-${hourPosition}" value=false aria-label="..."></div></td>`
+        string = string + `<td><div class="form-check"><input class="form-check-input position-static" type="checkbox" id="day-${weekdayPosition}-hr-${hourPosition}" day-val="index-${weekdayPosition}" hr-val="hr-${hourPosition}" value=false aria-label="..."></div></td>`
         weekdayPosition++;
     }
     return string;
@@ -92,7 +92,6 @@ $(document).ready(function () {
             lng = response.results[0].geometry.location.lng.toFixed(3);
 
             // adding info to firebase user data
-            // firebase.auth().onAuthStateChanged(function (user) {
             let user = firebase.auth().currentUser;
 
             if (user) {
