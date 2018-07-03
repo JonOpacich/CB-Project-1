@@ -13,7 +13,7 @@ let database = firebase.database();
 
 function initMap() {
 
-//setting the coords for centering the map latitude then longitude
+    //setting the coords for centering the map latitude then longitude
     firebase.auth().onAuthStateChanged(function (user) {
 
         if (user) {
@@ -25,16 +25,15 @@ function initMap() {
             database.ref().on("value", function (snapshot) {
                 lat = snapshot.child(`/users/${userId}/lat`).val()
                 lng = snapshot.child(`/users/${userId}/lng`).val()
-           
-            let options = {
-                zoom: 11,
-                center: { lat: parseFloat(lat), lng: parseFloat(lng) },
-                // center: { lat: 45, lng: -93.26 },
-            };
 
-            //new map
-            let map = new
-                google.maps.Map(document.getElementById('map'), options);
+                let options = {
+                    zoom: 11,
+                    center: { lat: parseFloat(lat), lng: parseFloat(lng) },
+                };
+
+                //new map
+                let map = new
+                    google.maps.Map(document.getElementById('map'), options);
             })
 
         } else {
@@ -50,7 +49,6 @@ function initMap() {
 
 $(document).ready(function () {
 
-    // console.log(homeMapLng, homeMapLng())
 
     //onclick handler for 'add-session' form
     var eventButton = $('#add-event');
@@ -96,7 +94,19 @@ $(document).ready(function () {
         }
     })
 
+    //when click on update schedule
+    $("#update-schedule").on("click", () => {
+        //get their user id
+        let userId = firebase.auth().currentUser.uid;
+
+        //remove their availability object from firebase
+        database.ref().child(`availability/${userId}`).remove()
+
+        //switch to schedule page
+        location.href = "schedule.html";
+
+    })
+
 
 })
-
 
