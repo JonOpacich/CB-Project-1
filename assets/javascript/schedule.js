@@ -96,17 +96,6 @@ firebase.auth().onAuthStateChanged(function (user) {
                     }
 
 
-
-                    //change the value of each check box from true/false when checked/unchecked
-                    $(document).on("click", ".form-check-input", function () {
-                        if ($(this).attr("value") == "false") {
-                            $(this).attr("value", "true")
-                        } else if ($(this).attr("value") == "true") {
-                            $(this).attr("value", "false")
-                        }
-                    });
-
-
                     //Once click address submit, converts to geocode, round specifics off address, send to Firebase, switch view to schedule form
                     $("#address-submit-btn").on("click", function (event) {
                         event.preventDefault();

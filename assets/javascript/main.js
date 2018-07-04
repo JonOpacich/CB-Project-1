@@ -52,7 +52,7 @@ function initMap() {
                             //going through each user id from availability in firebase
                             content = "";
                             snapshot.forEach(function (item2) {
-                                
+
                                 // next looking for the id that matches the current marker id
                                 if (itemKey === item2.key) {
                                     //pulling the schedule array for that id
@@ -60,7 +60,7 @@ function initMap() {
                                     //for each item in that array, add <p> tag to content
                                     scheduleArray.forEach(function (item3) {
                                         content += `<p>${item3.day}: ${item3.time}</p>`;
-                                        
+
                                     })
                                 }
                             })
@@ -112,6 +112,27 @@ function initMap() {
 
 
 $(document).ready(function () {
+
+//clicking generate btn adds quote to page w/ API, changes daily (couldn't find advice)
+//Can only get 10 requests per hour so stuck it in a btn so it doesn't run every time page is refreshed
+    $("#generate-quote-btn").on("click", function () {
+        //can change to =students for different quotes
+        let settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://quotes.rest/qod?category=inspire",
+            "method": "GET",
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            let quote = response.contents.quotes[0].quote;
+            $("#quote").html(quote);
+        });
+
+        //hide generate btn
+        $("#generate-quote-btn").addClass("d-none")
+    })
 
 
     //onclick handler for 'add-session' form
