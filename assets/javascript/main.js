@@ -20,12 +20,13 @@ function initMap() {
             // User is signed in.
             let userId = firebase.auth().currentUser.uid;
             let lng = 0,
-                lat = 0;
-            console.log(userId)
+                lat = 0,
+                content = "";
+
             database.ref().on("value", function (snapshot) {
                 lat = snapshot.child(`/users/${userId}/lat`).val()
                 lng = snapshot.child(`/users/${userId}/lng`).val()
-
+                //map options
                 let options = {
                     zoom: 11,
                     center: { lat: parseFloat(lat), lng: parseFloat(lng) },
@@ -34,11 +35,74 @@ function initMap() {
                 //new map
                 let map = new
                     google.maps.Map(document.getElementById('map'), options);
-            })
+
+
+                //Array of markers taken from firebase
+                let markers = [];
+                database.ref("addressList").on("value", function (snapshot) {
+                    snapshot.forEach(function (item) {
+
+                        let lat = parseFloat(item.val().lat);
+                        let lng = parseFloat(item.val().lng);
+                        let itemKey = item.key;
+
+                        //if key matches the item in availability, then go through its availability array and create a p for each one....
+
+                        database.ref(`availability`).on("value", function (snapshot) {
+                            //going through each user id from availability in firebase
+                            content = "";
+                            snapshot.forEach(function (item2) {
+                                
+                                // next looking for the id that matches the current marker id
+                                if (itemKey === item2.key) {
+                                    //pulling the schedule array for that id
+                                    let scheduleArray = item2.val().userScheduleArray;
+                                    //for each item in that array, add <p> tag to content
+                                    scheduleArray.forEach(function (item3) {
+                                        content += `<p>${item3.day}: ${item3.time}</p>`;
+                                        
+                                    })
+                                }
+                            })
+                        })
+
+                        markers.push({
+                            coords: { lat: lat, lng: lng },
+                            iconImage: "assets/images/location.png",
+                            content: `<h4>${item.val().name}</h4>
+                                        ${content}`
+
+                        })
+                    });
+                });
+
+                //loop through markers & add to map
+                for (let i = 0; i < markers.length; i++) {
+                    addMarker(markers[i]);
+                }
+
+                //Add Marker Function
+                function addMarker(props) {
+                    let marker = new google.maps.Marker({
+                        position: props.coords,
+                        map: map,
+                        icon: props.iconImage,
+                    });
+                    if (props.content) {
+                        let infoWindow = new google.maps.InfoWindow({
+                            content: props.content
+                        });
+
+                        marker.addListener("click", function () {
+                            infoWindow.open(map, marker)
+                        });
+                    }
+                }
+            });
 
         } else {
             // User is signed out
-        }
+        };
     }, function (error) {
         console.log(error);
     });
