@@ -192,6 +192,19 @@ $(document).ready(function () {
 
     })
 
+    //when click on log-out link
+    $("#log-out").on("click", () => {
+        //sign user out
+        firebase.auth().signOut().then(function () {
+            // Sign-out successful.Redirects to sign-in page
+            location.href = "index.html";
+        }).catch(function (error) {
+            // An error happened.
+            console.log("Uh-oh, looks like we couldn't sign you out at this time. Try again later.", error)
+        });
+
+
+    })
 
 })
 
