@@ -112,6 +112,21 @@ function initMap() {
 
 
 $(document).ready(function () {
+    //adding quote to page w/ API, changes daily (couldn't find advice)
+    //only get 10 requests per hour....can change to =students
+    let settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://quotes.rest/qod?category=inspire",
+        "method": "GET",
+      }
+      
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+        let quote = response.contents.quotes[0].quote;
+        $("#quote").html(quote);
+      });
+
 
 
     //onclick handler for 'add-session' form
