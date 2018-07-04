@@ -21,11 +21,11 @@ function initMap() {
             let userId = firebase.auth().currentUser.uid;
             let lng = 0,
                 lat = 0;
-            console.log(userId)
+            
             database.ref().on("value", function (snapshot) {
                 lat = snapshot.child(`/users/${userId}/lat`).val()
                 lng = snapshot.child(`/users/${userId}/lng`).val()
-
+                //map options
                 let options = {
                     zoom: 11,
                     center: { lat: parseFloat(lat), lng: parseFloat(lng) },
@@ -34,11 +34,72 @@ function initMap() {
                 //new map
                 let map = new
                     google.maps.Map(document.getElementById('map'), options);
-            })
+
+
+                //Array of markers taken from firebase
+                let markers = [];
+                database.ref("addressList").on("value", function (snapshot) {
+                    snapshot.forEach(function (item) {
+
+                        let lat = parseFloat(item.val().lat);
+                        let lng = parseFloat(item.val().lng);
+                        // let itemKey = item.key;
+
+                        //left off here..this does not work yet
+                        // //Array of content from firebase, needed for markers
+                        // database.ref(`availability/${itemKey}/userScheduleArray`).on("value", function (snapshot) {
+                        //     //going through each user id from firebase
+                        //     console.log(snapshot.val())
+                        //     snapshot.val().forEach(function (item, index) {
+                        //         // going through each array item for each user id
+                        //         console.log(item)
+                        //         let scheduleArray = item.userScheduleArray;
+                        //         scheduleArray.forEach(function (item) {
+                        //             content = `${item.day}: ${item.time}`
+                        //             console.log(content)
+                        //         })
+                        //     })
+                        // })
+
+
+                        markers.push({
+                            coords: { lat: lat, lng: lng },
+                            iconImage: "assets/images/location.png",
+                            content: `${item.val().name}`
+                            //change content to include availability
+
+                        })
+                    });
+                });
+                console.log(markers)
+
+                //loop through markers & add to map
+                for (let i = 0; i < markers.length; i++) {
+                    addMarker(markers[i]);
+                }
+
+                //Add Marker Function
+                function addMarker(props) {
+                    let marker = new google.maps.Marker({
+                        position: props.coords,
+                        map: map,
+                        icon: props.iconImage,
+                    });
+                    if (props.content) {
+                        let infoWindow = new google.maps.InfoWindow({
+                            content: props.content
+                        });
+
+                        marker.addListener("click", function () {
+                            infoWindow.open(map, marker)
+                        });
+                    }
+                }
+            });
 
         } else {
             // User is signed out
-        }
+        };
     }, function (error) {
         console.log(error);
     });
