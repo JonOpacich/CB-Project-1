@@ -20,8 +20,9 @@ function initMap() {
             // User is signed in.
             let userId = firebase.auth().currentUser.uid;
             let lng = 0,
-                lat = 0;
-            
+                lat = 0,
+                content = "";
+
             database.ref().on("value", function (snapshot) {
                 lat = snapshot.child(`/users/${userId}/lat`).val()
                 lng = snapshot.child(`/users/${userId}/lng`).val()
@@ -43,35 +44,37 @@ function initMap() {
 
                         let lat = parseFloat(item.val().lat);
                         let lng = parseFloat(item.val().lng);
-                        // let itemKey = item.key;
+                        let itemKey = item.key;
 
-                        //left off here..this does not work yet
-                        // //Array of content from firebase, needed for markers
-                        // database.ref(`availability/${itemKey}/userScheduleArray`).on("value", function (snapshot) {
-                        //     //going through each user id from firebase
-                        //     console.log(snapshot.val())
-                        //     snapshot.val().forEach(function (item, index) {
-                        //         // going through each array item for each user id
-                        //         console.log(item)
-                        //         let scheduleArray = item.userScheduleArray;
-                        //         scheduleArray.forEach(function (item) {
-                        //             content = `${item.day}: ${item.time}`
-                        //             console.log(content)
-                        //         })
-                        //     })
-                        // })
+                        //if key matches the item in availability, then go through its availability array and create a p for each one....
 
+                        database.ref(`availability`).on("value", function (snapshot) {
+                            //going through each user id from availability in firebase
+                            content = "";
+                            snapshot.forEach(function (item2) {
+                                
+                                // next looking for the id that matches the current marker id
+                                if (itemKey === item2.key) {
+                                    //pulling the schedule array for that id
+                                    let scheduleArray = item2.val().userScheduleArray;
+                                    //for each item in that array, add <p> tag to content
+                                    scheduleArray.forEach(function (item3) {
+                                        content += `<p>${item3.day}: ${item3.time}</p>`;
+                                        
+                                    })
+                                }
+                            })
+                        })
 
                         markers.push({
                             coords: { lat: lat, lng: lng },
                             iconImage: "assets/images/location.png",
-                            content: `${item.val().name}`
-                            //change content to include availability
+                            content: `<h4>${item.val().name}</h4>
+                                        ${content}`
 
                         })
                     });
                 });
-                console.log(markers)
 
                 //loop through markers & add to map
                 for (let i = 0; i < markers.length; i++) {

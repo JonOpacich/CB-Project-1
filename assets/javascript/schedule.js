@@ -16,9 +16,9 @@ let database = firebase.database();
 
 let userScheduleArray = [];
 
-//if statement to determine if user already has address/schedule. If so redirect to main page
 //waiting for firebase user to load
 firebase.auth().onAuthStateChanged(function (user) {
+    //if statement to determine if user already has address/schedule. If so redirects to main page
     if (user) {
         let userId = firebase.auth().currentUser.uid;
 
@@ -31,14 +31,13 @@ firebase.auth().onAuthStateChanged(function (user) {
             } else {
 
 
-
-
                 $(document).ready(function () {
 
                     // displays days of week starting with Sunday
                     let tableDay = "";
                     let dayIndex = 0;
                     let boxIndex = 0;
+                    $("#table-header, #table-body").empty();
                     for (let weekdayIndex = 7; weekdayIndex > 0; weekdayIndex--) {
 
                         tableDay = moment().day(0 - weekdayIndex).format("dddd");
