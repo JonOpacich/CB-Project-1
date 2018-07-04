@@ -52,7 +52,7 @@ function initMap() {
                             //going through each user id from availability in firebase
                             content = "";
                             snapshot.forEach(function (item2) {
-                                
+
                                 // next looking for the id that matches the current marker id
                                 if (itemKey === item2.key) {
                                     //pulling the schedule array for that id
@@ -60,7 +60,7 @@ function initMap() {
                                     //for each item in that array, add <p> tag to content
                                     scheduleArray.forEach(function (item3) {
                                         content += `<p>${item3.day}: ${item3.time}</p>`;
-                                        
+
                                     })
                                 }
                             })
@@ -171,6 +171,19 @@ $(document).ready(function () {
 
     })
 
+    //when click on log-out link
+    $("#log-out").on("click", () => {
+        //sign user out
+        firebase.auth().signOut().then(function () {
+            // Sign-out successful.Redirects to sign-in page
+            location.href = "index.html";
+        }).catch(function (error) {
+            // An error happened.
+            console.log("Uh-oh, looks like we couldn't sign you out at this time. Try again later.", error)
+        });
+
+
+    })
 
 })
 
