@@ -27,11 +27,11 @@
 
 <body>
     <article class="container">
-        <!-- Address enter form -->
+        <!-- Address form -->
         <div class="row">
-            <form class="col-md-8">
+            <form>
                 <section id="addressForm" class="form-group">
-                    <label for="addressForm">Enter Address</label>
+                    <label for="addressForm"><h2>Enter Address</h2></label>
                     <div class="form-row">
                         <div class="col">
                             <input type="name" class="form-control" id="name" aria-describedby="name" placeholder="Name">
@@ -57,24 +57,23 @@
                         <button id="address-submit-btn" class="btn btn-primary" type="submit">Submit</button>
                     </div>
                 </section>
-
-                <!-- scheudule form -->
+            </form>
+            <!-- schedule form -->
+            <form>
                 <div class="row">
                     <div id="schedule-form" class="d-none">
-                        <table class="table">
+                        <table class="table table-responsive">
                             <thead>
-                                <h2>Enter your Weekly Schedule</h2>
+                                <h2>Enter Study Availability</h2>
                                 <tr id="table-header">
-                                    <th>Hours/Day</th>
+
                                 </tr>
                             </thead>
                             <tbody id="table-body">
+                                
                             </tbody>
                         </table>
                         <button id="schedule-submit-btn" class="btn btn-primary" type="submit">Submit</button>
-                        <!-- <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-                    </div> -->
                     </div>
                 </div>
             </form>
