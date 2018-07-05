@@ -1,5 +1,5 @@
-//make this giant if statment so may just skip the whole thing if already entered info
 //schedule needs to update for every 2 weeks?
+//add validation so start time is before end time
 
 // Initialize team Firebase
 var config = {
@@ -33,7 +33,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                 $(document).ready(function () {
 
-                    // displays days of week starting with Sunday
+                    // displays days of week as table headers starting with Sunday
                     let tableDay = "";
                     let dayIndex = 0;
                     let boxIndex = 0;
@@ -45,6 +45,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                             `<th scope="col">${tableDay}</th>`
                         );
 
+                        //fills in table body with time selections
                         $("#table-body").append(
                             `<td>
                 <div class="form-group">
@@ -145,14 +146,13 @@ firebase.auth().onAuthStateChanged(function (user) {
                             }
                         });
 
-
+                        //hide address form, show schedule
                         $("#addressForm").addClass("d-none");
                         $("#schedule-form").removeClass("d-none");
                     })
 
 
-
-                    //when click submit button
+                    //when click schedule submit button
                     $("#schedule-submit-btn").on("click", function (event) {
                         event.preventDefault();
                         //captures which times have been added and saves its day/time to Firebase 
@@ -180,7 +180,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                             }
                         }
 
-                        console.log(userScheduleArray)
+                        // console.log(userScheduleArray)
                         let user = firebase.auth().currentUser;
 
                         if (user) {
