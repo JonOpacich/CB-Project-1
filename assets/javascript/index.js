@@ -1,4 +1,17 @@
 $(document).ready(function () {
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAGrun6JkFUDgSTJRFqDyPxzT0ymkDdPwI",
+        authDomain: "session-a4950.firebaseapp.com",
+        databaseURL: "https://session-a4950.firebaseio.com",
+        projectId: "session-a4950",
+        storageBucket: "session-a4950.appspot.com",
+        messagingSenderId: "298286458371"
+    };
+    firebase.initializeApp(config)
+    database=firebase.database();
+
     // Initialize the FirebaseUI Widget using Firebase.
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     
