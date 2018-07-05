@@ -64,7 +64,7 @@ $("#sessionSubmit").on("click", function(event){
             $("#sessionZipcode").val("");
             $("#sessionTimeStart").val("");
             $("#sessionTimeEnd").val("");
-            $("#sessionInvite").val("");
+     
     
         
     
