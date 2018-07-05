@@ -46,24 +46,19 @@ $("#sessionSubmit").on("click", function(event){
             console.log(sessionInfo)
             database.ref("sessionData").push(sessionInfo);
     
-            console.log(sessionInfo.topic);
-            console.log(sessionInfo.location); 
-            console.log(sessionInfo.start);
-            console.log(sessionInfo.end)
-    
+            // console.log(sessionInfo.topic);
+            // console.log(sessionInfo.location); 
+            // console.log(sessionInfo.start);
+            // console.log(sessionInfo.end)
             
-    
-            
-    
-            
-            $("#sessionTopic").val("");
-            $("#sessionLocation").val("");
-            $("#sessionAddress").val("");
-            $("#sessionCity").val("");
-            $("#sessionState").val("");
-            $("#sessionZipcode").val("");
-            $("#sessionTimeStart").val("");
-            $("#sessionTimeEnd").val("");
+            // $("#sessionTopic").val("");
+            // $("#sessionLocation").val("");
+            // $("#sessionAddress").val("");
+            // $("#sessionCity").val("");
+            // $("#sessionState").val("");
+            // $("#sessionZipcode").val("");
+            // $("#sessionTimeStart").val("");
+            // $("#sessionTimeEnd").val("");
      
     
         
@@ -102,6 +97,8 @@ $("#sessionSubmit").on("click", function(event){
                 return "td_" + n;
             });
         });
+
+        //need to save these to database as well so persistent
         $(document).on("click", ".sessionCommit", function(event){
           let fbstart = $(this).attr("data-fbstart")
           let fbend = $(this).attr("data-fbend")

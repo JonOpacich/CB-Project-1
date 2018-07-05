@@ -14,9 +14,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
     
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="assets/javascript/sessionAdd.js"></script>
     <script src="assets/javascript/main.js"></script>
     <script src="assets/javascript/chat.js"></script>
-    <script src="assets/javascript/sessionAdd.js"></script>
+    
 
 
     
@@ -88,7 +89,7 @@
             <div class="list-group">
                 <li  class="list-group-item list-group-item-action active com-li">Your Upcoming Sessions</li>
                 <a id="commitmentList" class="list-group-item list-group-item-action com-li">
-                    <b>Project Meeting</b> 07.01</a>
+                    <b>Nothing to report:</b> Time to sign up!</a>
             </div>
         </aside>
         <aside class="sidebar" id="tips">
@@ -134,35 +135,35 @@
             </button>
             <form id="form-layout">
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Title</label>
-                    <input type="text" class="form-control" id="sessionTopic" placeholder="Example input">
+                    <label for="formGroupExampleInput">Topic</label>
+                    <input type="text" class="form-control" id="sessionTopic" placeholder="Upcoming Homework">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2" style="display:block">Time</label>
+                    <label for="sessionTimeStart sessionTimeEnd" style="display:block">Date/Time</label>
                     <span>
-                        <input type="text" class="form-control" id="sessionTimeStart" placeholder="Another input" style="width:45%;display:inline-block"> -
-                        <input type="text" class="form-control" id="sessionTimeEnd" placeholder="Another input"
+                        <input type="text" class="form-control" id="sessionTimeStart" placeholder="Date, H:MM" style="width:45%;display:inline-block"> -
+                        <input type="text" class="form-control" id="sessionTimeEnd" placeholder="H:MM AM/PM"
                             style="width:45%;display:inline-block">
                     </span>
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Location</label>
+                    <label for="sessionLocation">Location</label>
                     <input type="text" class="form-control" id="sessionLocation" placeholder="Jon's House">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Address</label>
+                    <label for="sessionAddress">Address</label>
                     <input type="text" class="form-control" id="sessionAddress" placeholder="1234 Main Street">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">City</label>
+                    <label for="sessionCity">City</label>
                     <input type="text" class="form-control" id="sessionCity" placeholder="New York City">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">State</label>
+                    <label for="sessionState">State</label>
                     <input type="text" class="form-control" id="sessionState" placeholder="New York">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Zipcode</label>
+                    <label for="sessionZipcode">Zipcode</label>
                     <input type="text" class="form-control" id="sessionZipcode" placeholder="01234">
                 </div>
                 
@@ -180,9 +181,10 @@
             <table id=sessionTable class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Title</th>
+                        <th scope="col">Topic</th>
                         <th scope="col">Location</th>
                         <th scope="col">Date/Time</th>
+                        <th scope="col">Add to Your Upcoming Sessions</th>
                     </tr>
                 </thead>
                 <tbody id="sessionBody">
