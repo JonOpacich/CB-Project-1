@@ -9,13 +9,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Session: Study Together</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
-    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-    <script src="assets/javascript/main.js"></script>
-    <script src="assets/javascript/chat.js"></script>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="assets/javascript/sessionAdd.js"></script>
+    <script src="assets/javascript/main.js"></script>
+    <script src="assets/javascript/chat.js"></script>
+    
+
+
+    
 </head>
 
 <body>
@@ -82,9 +87,9 @@
         </section>
         <aside class="sidebar" id="commitments">
             <div class="list-group">
-                <li class="list-group-item list-group-item-action active com-li">Your Upcoming Sessions</li>
-                <a href="#" class="list-group-item list-group-item-action com-li">
-                    <b>Project Meeting</b> 07.01</a>
+                <li  class="list-group-item list-group-item-action active com-li">Your Upcoming Sessions</li>
+                <a id="commitmentList" class="list-group-item list-group-item-action com-li">
+                    <b>Nothing to report:</b> Time to sign up!</a>
             </div>
         </aside>
         <aside class="sidebar" id="tips">
@@ -125,32 +130,45 @@
         <main id="map"></main>
         <!-- make a session section -->
         <aside class="add-event" id="add-event">
-            <h1 class="display-4">Create a Session</h1>
+            <h3 class="display-4">Create a Session</h3>
             <button type="button" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             <form id="form-layout">
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Title</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                    <label for="formGroupExampleInput">Topic</label>
+                    <input type="text" class="form-control" id="sessionTopic" placeholder="Upcoming Homework">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2" style="display:block">Time</label>
+                    <label for="sessionTimeStart sessionTimeEnd" style="display:block">Date/Time</label>
                     <span>
-                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" style="width:45%;display:inline-block"> -
-                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input"
+                        <input type="text" class="form-control" id="sessionTimeStart" placeholder="Date, H:MM" style="width:45%;display:inline-block"> -
+                        <input type="text" class="form-control" id="sessionTimeEnd" placeholder="H:MM AM/PM"
                             style="width:45%;display:inline-block">
                     </span>
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Location</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                    <label for="sessionLocation">Location</label>
+                    <input type="text" class="form-control" id="sessionLocation" placeholder="Jon's House">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Send Invites (Optional)</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                    <label for="sessionAddress">Address</label>
+                    <input type="text" class="form-control" id="sessionAddress" placeholder="1234 Main Street">
                 </div>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="sessionCity">City</label>
+                    <input type="text" class="form-control" id="sessionCity" placeholder="New York City">
+                </div>
+                <div class="form-group">
+                    <label for="sessionState">State</label>
+                    <input type="text" class="form-control" id="sessionState" placeholder="New York">
+                </div>
+                <div class="form-group">
+                    <label for="sessionZipcode">Zipcode</label>
+                    <input type="text" class="form-control" id="sessionZipcode" placeholder="01234">
+                </div>
+                
+                <button id="sessionSubmit" type="button" class="btn btn-primary">Submit</button>
             </form>
         </aside>
         <!-- add button -->
@@ -161,33 +179,17 @@
             <h1 class="display-3" id="sessions-title">
                 <b>Available Sessions</b>
             </h1>
-            <table class="table">
+            <table id=sessionTable class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Title</th>
+                        <th scope="col">Topic</th>
                         <th scope="col">Location</th>
                         <th scope="col">Date/Time</th>
+                        <th scope="col">Add to Your Upcoming Sessions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Project Meeting</th>
-                        <td>Uptown Starbucks</td>
-                        <td>July 1st 4:30-7:00</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">Review Resumes/Job Search</th>
-                        <td>Jon's House</td>
-                        <td>July 12th 5:00-?</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">React.js</th>
-                        <td>Classroom</td>
-                        <td> July 3rd 2:30-?</td>
-
-                    </tr>
+                <tbody id="sessionBody">
+                    
                 </tbody>
             </table>
         </section>
