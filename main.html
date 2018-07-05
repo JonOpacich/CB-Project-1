@@ -12,15 +12,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
-    
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-    <script src="assets/javascript/sessionAdd.js"></script>
     <script src="assets/javascript/main.js"></script>
     <script src="assets/javascript/chat.js"></script>
-    
 
 
-    
+
+
 </head>
 
 <body>
@@ -69,28 +68,31 @@
                 <tbody>
                     <tr>
                         <th class="row">
-                            <td><span class="dot"></span>Jon@gmail.com</td> 
-                            
+                            <td>
+                                <span class="dot"></span>Jon@gmail.com</td>
+
                     </tr>
                     <tr>
                         <th class="row">
-                            <td><span class="dot"></span>Amanda@yahoo.com</td>
-                            
+                            <td>
+                                <span class="dot"></span>Amanda@yahoo.com</td>
+
                     </tr>
                     <tr>
                         <th class="row">
-                          
-                            <td><span class="dot"></span>Brian@outlook.com</td>
+
+                            <td>
+                                <span class="dot"></span>Brian@outlook.com</td>
                     </tr>
                 </tbody>
             </table>
         </section>
+        <!-- user commitments -->
         <aside class="sidebar" id="commitments">
-            <div class="list-group">
-                <li  class="list-group-item list-group-item-action active com-li">Your Upcoming Sessions</li>
-                <a id="commitmentList" class="list-group-item list-group-item-action com-li">
-                    <b>Nothing to report:</b> Time to sign up!</a>
-            </div>
+            <h1 class="display-3 active" id="commitments-title">Your Upcoming Sessions</h1>
+            <ul class="list-group" id="commitmentList">
+                
+            </ul>
         </aside>
         <aside class="sidebar" id="tips">
             <h4>Daily Quote</h4>
@@ -143,8 +145,7 @@
                     <label for="sessionTimeStart sessionTimeEnd" style="display:block">Date/Time</label>
                     <span>
                         <input type="text" class="form-control" id="sessionTimeStart" placeholder="Date, H:MM" style="width:45%;display:inline-block"> -
-                        <input type="text" class="form-control" id="sessionTimeEnd" placeholder="H:MM AM/PM"
-                            style="width:45%;display:inline-block">
+                        <input type="text" class="form-control" id="sessionTimeEnd" placeholder="H:MM AM/PM" style="width:45%;display:inline-block">
                     </span>
                 </div>
                 <div class="form-group">
@@ -167,7 +168,7 @@
                     <label for="sessionZipcode">Zipcode</label>
                     <input type="text" class="form-control" id="sessionZipcode" placeholder="01234">
                 </div>
-                
+
                 <button id="sessionSubmit" type="button" class="btn btn-primary">Submit</button>
             </form>
         </aside>
@@ -189,7 +190,7 @@
                     </tr>
                 </thead>
                 <tbody id="sessionBody">
-                    
+
                 </tbody>
             </table>
         </section>
@@ -229,7 +230,11 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+                    <p>Icons made by
+                        <a href="http://www.freepik.com" title="Freepik">Freepik</a> from
+                        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
+                        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+                    </p>
                     <p>
                         <U>Session: Study Together</U> is an open-source group project by Jonathan Opacich, Samantha Prestige,
                         Amanda Malmin and Brian Richardson. Copyright 2018; Opacich, JW. Licensed under the Apache License,
