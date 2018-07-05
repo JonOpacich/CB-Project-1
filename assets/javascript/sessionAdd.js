@@ -24,6 +24,10 @@ $("#sessionSubmit").on("click", function(event){
     
             var Topic = $("#sessionTopic").val();
             var Place = $("#sessionLocation").val();
+            var Address = $("#sessionAddress").val();
+            var City = $("#sessionCity").val();
+            var State = $("#sessionState").val();
+            var Zipcode = $("#sessionZipcode").val();
             var Start = $("#sessionTimeStart").val();
             var End = $("#sessionTimeEnd").val();
     
@@ -31,6 +35,10 @@ $("#sessionSubmit").on("click", function(event){
             var sessionInfo = {
                 topic:  Topic,
                 location: Place,
+                address: Address,
+                city: City,
+                state: State,
+                zip: Zipcode,
                 start: Start,
                 end: End
             };
@@ -50,8 +58,13 @@ $("#sessionSubmit").on("click", function(event){
             
             $("#sessionTopic").val("");
             $("#sessionLocation").val("");
+            $("#sessionAddress").val("");
+            $("#sessionCity").val("");
+            $("#sessionState").val("");
+            $("#sessionZipcode").val("");
             $("#sessionTimeStart").val("");
             $("#sessionTimeEnd").val("");
+            $("#sessionInvite").val("");
     
         
     
