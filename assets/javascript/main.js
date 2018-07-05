@@ -61,7 +61,6 @@ function initMap() {
                                     //for each item in that array, add <p> tag to content
                                     scheduleArray.forEach(function (item3) {
                                         content += `<p>${item3.day}: ${item3.time}</p>`;
-
                                     })
                                 }
                             })
