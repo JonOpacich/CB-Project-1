@@ -323,14 +323,11 @@ body{
     font-size: .8rem
 }
 
-.form-control {
+#form-layout .form-control {
     font-size: .3rem
 }
 
 /* Amanda's Schedule CSS */
-.dropdownStart, .dropdownEnd {
-
-}
 
 #addressForm h2, #schedule-form h2  {
     font-size: 4vw;
