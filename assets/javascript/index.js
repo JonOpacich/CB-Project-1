@@ -42,4 +42,8 @@ $(document).ready(function () {
 
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
+
+    $("#privacy-button").on("click",function(){
+        $('#privacy').hide();
+    })
 });

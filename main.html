@@ -16,10 +16,6 @@
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="assets/javascript/main.js"></script>
     <script src="assets/javascript/chat.js"></script>
-
-
-
-
 </head>
 
 <body>
@@ -49,10 +45,20 @@
         <div class="dropdown" id="medal">
             <img src="assets/images/medal-icon.png" alt="settings-icon" id="medal-icon">
             <div class="dropdown-content" id="medal-content">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">Achievement #1</a>
-                    <a href="#" class="list-group-item list-group-item-action">Achievement #2</a>
-                    <a href="#" class="list-group-item list-group-item-action">Achievement #3</a>
+                <div class="list-group" style="width:14vw">
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <img src="assets/images/crown.png" id="crown-icon" /> Login 5 times
+                        <br>
+                        <div class="progress" style "">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">
+                                <span class="sr-only">20% Complete</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <img src="assets/images/medal.png" id="medal-icon" /> Message a friend</a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        <img src="assets/images/trophy.png" id="trophy-icon" /> Join a study group</a>
                 </div>
             </div>
         </div>
@@ -91,7 +97,7 @@
         <aside class="sidebar" id="commitments">
             <h1 class="display-3 active" id="commitments-title">Your Upcoming Sessions</h1>
             <ul class="list-group" id="commitmentList">
-                
+
             </ul>
         </aside>
         <aside class="sidebar" id="tips">
@@ -111,6 +117,7 @@
     <!-- <iframe src="//fiddle.jshell.net/firebase/dy1fmc5b/show/light/" frameborder="0" sandbox="allow-forms allow-scripts allow-same-origin allow-modals allow-popups" allow="midi; geolocation; microphone; camera; encrypted-media;"></iframe> -->
 
     <div id="chat-div">
+        <span style="position:absolute; top:0;left:0;right:0; color:whitesmoke; text-align: center; border-radius:2px; background-color:rgb(1, 114, 189)">Group Chat</span>
         <br>
         <div class="container">
             <div class="panel panel-primary">
@@ -122,9 +129,9 @@
             <div class="form-group">
                 <div id="textChat"></div>
 
-                <input type="text" class="form-control msgInput" placeholder="Message here...">
+                <input type="text" class="form-control msgInput" placeholder="Message here..." style="position:absolute; bottom:12px; left:1px;">
             </div>
-            <button type="submit" id="submit" class="btn btn-default">Send</button>
+            <button type="submit" id="submit" class="btn btn-primary" style="position:absolute;bottom:12px;right:1px">Send</button>
         </div>
     </div>
     <!-- all components in wrapper div use css grid(excluding #add-button)-->
@@ -169,7 +176,7 @@
                     <input type="text" class="form-control" id="sessionZipcode" placeholder="01234">
                 </div>
 
-                <button id="sessionSubmit" type="button" class="btn btn-primary">Submit</button>
+                <button id="sessionSubmit" type="button" class="btn btn-primary" style="margin-top:0;">Submit</button>
             </form>
         </aside>
         <!-- add button -->
