@@ -24,15 +24,7 @@ body{
     left:3vw;
     
 }
-#settings-icon{
-    height:5vh;
-    width:auto;
-}
-#calendar-icon{
-    height:5vh;
-    width:auto;
-}
-#medal-icon{
+#medal-icon, #crown-icon, #calendar-icon, #settings-icon, #trophy-icon{
     height:5vh;
     width:auto;
 }
@@ -152,7 +144,8 @@ body{
     border-radius: 10vw;
 }
 #users-div{
-    font-size: 1vw;
+    font-weight:bold;
+    font-size: 0.8vw;
     grid-row:1/2;
     opacity:0.95;
     background-color: #FFC400;
@@ -160,7 +153,7 @@ body{
     overflow:hidden;
 }
 #users-title{
-    font-size:1.5vw;
+    font-size:1.2vw;
     text-align:center;
 }
 #commitments-title{
@@ -240,12 +233,12 @@ body{
     
     font-weight:bold;
     width:80%;
-    margin:10% auto 0;
+    margin:0 auto 0;
 }
 .display-4{
     text-align:center;
     font-size: 1.5rem;
-    background-color:rgb(30, 112, 206);
+    background-color:rgb(204, 33, 33);
     border-top-left-radius: 0.5vw;
     border-top-right-radius: 0.5vw;
 }
@@ -320,11 +313,12 @@ body{
 
 
 .form-group {
-    font-size: .8rem
+    font-size: 1rem
 }
 
 #form-layout .form-control {
-    font-size: .3rem
+    font-size: 0.5rem;
+    margin-top:0;
 }
 
 /* Amanda's Schedule CSS */
@@ -358,3 +352,4 @@ body{
 .btn {
     margin-top: .5rem;
 }
+.progress {height: 10px; width:100px;float:right}
